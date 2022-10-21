@@ -1,4 +1,4 @@
-import 'package:coachboard/pages/coach_board/view/coach_board_page.dart';
+import 'package:coachboard/pages/coach_board/login_page/view/coach_board_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
