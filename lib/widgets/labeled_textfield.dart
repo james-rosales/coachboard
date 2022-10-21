@@ -18,14 +18,15 @@ class LabeledTextfield extends StatelessWidget {
         Align(
           alignment: Alignment.centerLeft,
           child: Padding(
-            padding: const EdgeInsets.only(left: 15.0),
+            padding: const EdgeInsets.only(left: 30.0),
             child: Text(
               label,
             ),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding:
+              const EdgeInsets.only(left: 30, right: 30, top: 15, bottom: 15),
           child: TextFormField(
             decoration: InputDecoration(
                 border: OutlineInputBorder(

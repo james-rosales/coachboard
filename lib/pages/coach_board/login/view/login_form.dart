@@ -3,6 +3,7 @@ import 'package:coachboard/widgets/labeled_textfield.dart';
 import 'package:coachboard/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
@@ -46,7 +47,7 @@ class LoginForm extends StatelessWidget {
                 style: TextStyle(fontSize: 20),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () => context.push('/register'),
                 child: const Text(
                   'Sign-up',
                   style: TextStyle(

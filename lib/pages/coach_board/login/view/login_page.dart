@@ -1,10 +1,13 @@
+import 'package:coachboard/pages/coach_board/appbar/view/coach_board_app_bar.dart';
 import 'package:coachboard/pages/coach_board/coach_board.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key, required String title});
+  const LoginPage({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +17,9 @@ class LoginPage extends StatelessWidget {
           appBar: PreferredSize(
             preferredSize: Size(
               double.infinity,
-              60,
+              100,
             ),
-            child: LoginAppBar(),
+            child: CoachBordAppBar(),
           ),
           body: SingleChildScrollView(
             child: LoginForm(),

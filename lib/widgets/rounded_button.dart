@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 import 'package:flutter/material.dart';
 
 class RoundedButton extends StatelessWidget {
@@ -17,7 +15,7 @@ class RoundedButton extends StatelessWidget {
       height: 60,
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
-          backgroundColor: Color.fromARGB(198, 0, 0, 0),
+          backgroundColor: const Color.fromARGB(198, 0, 0, 0),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
               5,
