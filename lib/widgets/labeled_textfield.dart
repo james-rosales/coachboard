@@ -13,31 +13,35 @@ class LabeledTextfield extends StatelessWidget {
   final ValueChanged onChanged;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Padding(
-            padding: const EdgeInsets.only(left: 30.0),
-            child: Text(
-              label,
+    return SizedBox(
+      width: 500,
+      height: 100,
+      child: Column(
+        children: [
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 30.0),
+              child: Text(
+                label,
+              ),
             ),
           ),
-        ),
-        Padding(
-          padding:
-              const EdgeInsets.only(left: 30, right: 30, top: 15, bottom: 15),
-          child: TextFormField(
-            decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                errorText: errorText),
-            obscureText: obscure,
-            onChanged: (value) => onChanged(value),
-          ),
-        )
-      ],
+          Padding(
+            padding:
+                const EdgeInsets.only(left: 30, right: 30, top: 15, bottom: 15),
+            child: TextFormField(
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  errorText: errorText),
+              obscureText: obscure,
+              onChanged: (value) => onChanged(value),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
