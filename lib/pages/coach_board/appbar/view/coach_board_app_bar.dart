@@ -1,11 +1,12 @@
+import 'package:coachboard/pages/coach_board/coach_board.dart';
 import 'package:flutter/material.dart';
 
 class CoachBordAppBar extends StatelessWidget {
-  const CoachBordAppBar({super.key});
-
+   CoachBordAppBar({super.key});
+final controller = PageController(initialPage:0);
   @override
   Widget build(BuildContext context) {
-    return AppBar(
+    return Scaffold(appBar:  AppBar(
 
       backgroundColor: Colors.black,
       title:
@@ -25,7 +26,9 @@ class CoachBordAppBar extends StatelessWidget {
               IconButton(
                 icon: const Icon(Icons.circle),
                
-                onPressed: () {},
+                onPressed: () {
+controller.animateToPage(0, duration: const Duration(seconds: 1), curve: Curves.easeInOut);
+                },
               ),
               
               const Align(alignment: FractionalOffset.bottomCenter,
@@ -40,7 +43,9 @@ class CoachBordAppBar extends StatelessWidget {
               IconButton(
                 icon: const Icon(Icons.handshake),
                
-                onPressed: () {},
+                onPressed: () {
+       controller.animateToPage(1, duration: const Duration(seconds: 1), curve: Curves.easeInOut);
+                },
               ),
               
               const Align(alignment: FractionalOffset.bottomCenter,
@@ -56,7 +61,9 @@ class CoachBordAppBar extends StatelessWidget {
               IconButton(
                 icon: const Icon(Icons.safety_check),
                
-                onPressed: () {},
+                onPressed: () {
+                  controller.animateToPage(2, duration: const Duration(seconds: 1), curve: Curves.easeInOut);
+                },
               ),
               
               const Align(alignment: FractionalOffset.bottomCenter,
@@ -72,7 +79,9 @@ class CoachBordAppBar extends StatelessWidget {
               IconButton(
                 icon: const Icon(Icons.dangerous),
                
-                onPressed: () {},
+                onPressed: () {
+                  controller.animateToPage(3, duration: const Duration(seconds: 1), curve: Curves.easeInOut);
+                },
               ),
               
               const Align(alignment: FractionalOffset.bottomCenter,
@@ -88,7 +97,9 @@ class CoachBordAppBar extends StatelessWidget {
               IconButton(
                 icon: const Icon(Icons.exit_to_app_outlined),
                
-                onPressed: () {},
+                onPressed: () {
+                  controller.animateToPage(4, duration: const Duration(seconds: 1), curve: Curves.easeInOut);
+                },
               ),
               
               const Align(alignment: FractionalOffset.bottomCenter,
@@ -99,6 +110,21 @@ class CoachBordAppBar extends StatelessWidget {
        
        
       ],
+      
+    ),
+    body:  PageView(physics: const NeverScrollableScrollPhysics(),
+    controller: controller,children: [
+      Container(),
+          Container(),
+              Container(),
+                  Container(),
+      const LoginPage(),
+ 
+    ],),
     );
+
+    
+    
   }
+  
 }

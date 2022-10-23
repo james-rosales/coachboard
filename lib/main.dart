@@ -1,7 +1,9 @@
-import 'package:coachboard/pages/coach_board/coach_board.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
+
+import 'pages/coach_board/coach_board.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +14,7 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return   CoachBoardPage();
+        return   CoachBordAppBar();
       },
     ),
     GoRoute(
