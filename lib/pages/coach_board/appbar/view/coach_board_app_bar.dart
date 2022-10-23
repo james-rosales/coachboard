@@ -1,4 +1,5 @@
 import 'package:coachboard/pages/coach_board/coach_board.dart';
+import 'package:coachboard/widgets/labeled_icon_button.dart';
 import 'package:flutter/material.dart';
 
 class CoachBordAppBar extends StatelessWidget {
@@ -19,94 +20,25 @@ final controller = PageController(initialPage:0);
         ),
      
       actions: [
-        Padding(
-          padding: const EdgeInsets.only(right:5.0),
-          child: Column(
-            children: [
-              IconButton(
-                icon: const Icon(Icons.circle),
-               
-                onPressed: () {
-controller.animateToPage(0, duration: const Duration(seconds: 1), curve: Curves.easeInOut);
-                },
-              ),
-              
-              const Align(alignment: FractionalOffset.bottomCenter,
-                child: Text('Full Court')),
-            ],
-          ),
-        ),
-        Padding(
-         padding: const EdgeInsets.only(right:5.0),
-          child: Column(
-            children: [
-              IconButton(
-                icon: const Icon(Icons.handshake),
-               
-                onPressed: () {
-       controller.animateToPage(1, duration: const Duration(seconds: 1), curve: Curves.easeInOut);
-                },
-              ),
-              
-              const Align(alignment: FractionalOffset.bottomCenter,
-                child: Text('Hand Plays')),
-            ],
-          ),
-        ),
+       LabeledIconButton(label: 'Full Court', iconAction: Icons.circle, onPress: () {
+           controller.animateToPage(0, duration: const Duration(seconds: 1), curve: Curves.easeInOut);
+       },),
+     
+      LabeledIconButton(label: 'Hand Plays', iconAction: Icons.circle, onPress: () {
+           controller.animateToPage(1, duration: const Duration(seconds: 1), curve: Curves.easeInOut);
+       },),
 
-        Padding(
-        padding: const EdgeInsets.only(right:5.0),
-          child: Column(
-            children: [
-              IconButton(
-                icon: const Icon(Icons.safety_check),
-               
-                onPressed: () {
-                  controller.animateToPage(2, duration: const Duration(seconds: 1), curve: Curves.easeInOut);
-                },
-              ),
-              
-              const Align(alignment: FractionalOffset.bottomCenter,
-                child: Text('Plans')),
-            ],
-          ),
-        ),
+        LabeledIconButton(label: 'Drawing', iconAction: Icons.circle, onPress: () {
+           controller.animateToPage(2, duration: const Duration(seconds: 1), curve: Curves.easeInOut);
+       },),
 
-        Padding(
-     padding: const EdgeInsets.only(right:5.0),
-          child: Column(
-            children: [
-              IconButton(
-                icon: const Icon(Icons.dangerous),
-               
-                onPressed: () {
-                  controller.animateToPage(3, duration: const Duration(seconds: 1), curve: Curves.easeInOut);
-                },
-              ),
-              
-              const Align(alignment: FractionalOffset.bottomCenter,
-                child: Text('Action 4')),
-            ],
-          ),
-        ),
+        LabeledIconButton(label: 'Half Court', iconAction: Icons.circle, onPress: () {
+           controller.animateToPage(3, duration: const Duration(seconds: 1), curve: Curves.easeInOut);
+       },),
 
-        Padding(
-        padding: const EdgeInsets.only(right:5.0),
-          child: Column(
-            children: [
-              IconButton(
-                icon: const Icon(Icons.exit_to_app_outlined),
-               
-                onPressed: () {
-                  controller.animateToPage(4, duration: const Duration(seconds: 1), curve: Curves.easeInOut);
-                },
-              ),
-              
-              const Align(alignment: FractionalOffset.bottomCenter,
-                child: Text('Login')),
-            ],
-          ),
-        ),
+        LabeledIconButton(label: 'Login', iconAction: Icons.circle, onPress: () {
+           controller.animateToPage(4, duration: const Duration(seconds: 1), curve: Curves.easeInOut);
+       },),
        
        
       ],
@@ -114,10 +46,10 @@ controller.animateToPage(0, duration: const Duration(seconds: 1), curve: Curves.
     ),
     body:  PageView(physics: const NeverScrollableScrollPhysics(),
     controller: controller,children: [
-      Container(),
-          Container(),
-              Container(),
-                  Container(),
+      Text('index 0'),
+           Text('index 1'),
+            Text('index 3'),
+                  Text('index 4'),
       const LoginPage(),
  
     ],),
