@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'login_state.dart';
+part of 'coach_board_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -16,8 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CoachBoardState {
-  String get email => throw _privateConstructorUsedError;
-  String? get errorTextemail => throw _privateConstructorUsedError;
+  int get actionsIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CoachBoardStateCopyWith<CoachBoardState> get copyWith =>
@@ -30,7 +29,7 @@ abstract class $CoachBoardStateCopyWith<$Res> {
           CoachBoardState value, $Res Function(CoachBoardState) then) =
       _$CoachBoardStateCopyWithImpl<$Res, CoachBoardState>;
   @useResult
-  $Res call({String email, String? errorTextemail});
+  $Res call({int actionsIndex});
 }
 
 /// @nodoc
@@ -46,18 +45,13 @@ class _$CoachBoardStateCopyWithImpl<$Res, $Val extends CoachBoardState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = null,
-    Object? errorTextemail = freezed,
+    Object? actionsIndex = null,
   }) {
     return _then(_value.copyWith(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      errorTextemail: freezed == errorTextemail
-          ? _value.errorTextemail
-          : errorTextemail // ignore: cast_nullable_to_non_nullable
-              as String?,
+      actionsIndex: null == actionsIndex
+          ? _value.actionsIndex
+          : actionsIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -70,7 +64,7 @@ abstract class _$$_CoachBoardStateCopyWith<$Res>
       __$$_CoachBoardStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String email, String? errorTextemail});
+  $Res call({int actionsIndex});
 }
 
 /// @nodoc
@@ -84,18 +78,13 @@ class __$$_CoachBoardStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = null,
-    Object? errorTextemail = freezed,
+    Object? actionsIndex = null,
   }) {
     return _then(_$_CoachBoardState(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      errorTextemail: freezed == errorTextemail
-          ? _value.errorTextemail
-          : errorTextemail // ignore: cast_nullable_to_non_nullable
-              as String?,
+      actionsIndex: null == actionsIndex
+          ? _value.actionsIndex
+          : actionsIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -103,18 +92,15 @@ class __$$_CoachBoardStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CoachBoardState implements _CoachBoardState {
-  _$_CoachBoardState({this.email = '', this.errorTextemail = null});
+  _$_CoachBoardState({this.actionsIndex = 0});
 
   @override
   @JsonKey()
-  final String email;
-  @override
-  @JsonKey()
-  final String? errorTextemail;
+  final int actionsIndex;
 
   @override
   String toString() {
-    return 'CoachBoardState(email: $email, errorTextemail: $errorTextemail)';
+    return 'CoachBoardState(actionsIndex: $actionsIndex)';
   }
 
   @override
@@ -122,13 +108,12 @@ class _$_CoachBoardState implements _CoachBoardState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CoachBoardState &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.errorTextemail, errorTextemail) ||
-                other.errorTextemail == errorTextemail));
+            (identical(other.actionsIndex, actionsIndex) ||
+                other.actionsIndex == actionsIndex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, email, errorTextemail);
+  int get hashCode => Object.hash(runtimeType, actionsIndex);
 
   @JsonKey(ignore: true)
   @override
@@ -138,13 +123,10 @@ class _$_CoachBoardState implements _CoachBoardState {
 }
 
 abstract class _CoachBoardState implements CoachBoardState {
-  factory _CoachBoardState({final String email, final String? errorTextemail}) =
-      _$_CoachBoardState;
+  factory _CoachBoardState({final int actionsIndex}) = _$_CoachBoardState;
 
   @override
-  String get email;
-  @override
-  String? get errorTextemail;
+  int get actionsIndex;
   @override
   @JsonKey(ignore: true)
   _$$_CoachBoardStateCopyWith<_$_CoachBoardState> get copyWith =>

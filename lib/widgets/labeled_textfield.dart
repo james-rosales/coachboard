@@ -15,7 +15,7 @@ class LabeledTextfield extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 500,
-      height: 100,
+      height: 120,
       child: Column(
         children: [
           Align(

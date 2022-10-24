@@ -1,12 +1,16 @@
-
+import 'package:coachboard/pages/home/home.dart';
 import 'package:flutter/material.dart';
-
 import 'package:go_router/go_router.dart';
 
-import 'pages/coach_board/coach_board.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import 'pages/appbar/view/view.dart';
+import 'pages/login/view/view.dart';
+import 'pages/register/view/view.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const CoachBoard());
 }
 
 final GoRouter _router = GoRouter(
@@ -14,7 +18,13 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return   CoachBordAppBar();
+        return const HomePage();
+      },
+    ),
+    GoRoute(
+      path: HomePage.route,
+      builder: (BuildContext context, GoRouterState state) {
+        return const HomePage();
       },
     ),
     GoRoute(
@@ -32,14 +42,32 @@ final GoRouter _router = GoRouter(
   ],
 );
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class CoachBoard extends StatelessWidget {
+  const CoachBoard({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
       routerConfig: _router,
-      title: 'Coach Board',
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en', ''),
+      ],
+      theme: ThemeData(
+        primarySwatch: Colors.brown,
+        appBarTheme: const AppBarTheme(
+          toolbarTextStyle: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: Colors.orange,
+          ),
+        ),
+      ),
     );
   }
 }

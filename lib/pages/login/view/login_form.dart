@@ -1,25 +1,26 @@
-import 'package:coachboard/pages/coach_board/coach_board.dart';
 import 'package:coachboard/widgets/labeled_textfield.dart';
 import 'package:coachboard/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../login.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var bloc = context.read<CoachBoardBloc>();
-    return BlocBuilder<CoachBoardBloc, CoachBoardState>(
-        builder: (context, state) {
+    var bloc = context.read<LoginBloc>();
+    return BlocBuilder<LoginBloc, LoginState>(builder: (context, state) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Padding(
+          Padding(
             padding: EdgeInsets.all(60.0),
             child: Text(
-              'Coach Login',
+              AppLocalizations.of(context)?.coachLogin ?? '',
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 35,
@@ -28,7 +29,7 @@ class LoginForm extends StatelessWidget {
           ),
           LabeledTextfield(
             errorText: state.errorTextemail,
-            label: 'Email',
+            label: AppLocalizations.of(context)?.email ?? '',
             onChanged: (value) => bloc.add(
               EmailChanged(value),
             ),
@@ -59,9 +60,12 @@ class LoginForm extends StatelessWidget {
               ),
             ],
           ),
-          RoundedButton(
-            onPress: () => bloc.add(LoginPressed()),
-            label: 'Login',
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: RoundedButton(
+              onPress: () => bloc.add(LoginPressed()),
+              label: 'Login',
+            ),
           ),
         ],
       );

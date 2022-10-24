@@ -1,7 +1,8 @@
-import 'package:coachboard/pages/coach_board/coach_board.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../bloc/bloc.dart';
+import 'view.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({
@@ -10,10 +11,9 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<CoachBoardBloc>(
-        create: (context) => CoachBoardBloc(CoachBoardState()),
+    return BlocProvider<LoginBloc>(
+        create: (context) => LoginBloc(LoginState()),
         child: const Scaffold(
-        
           body: SingleChildScrollView(
             child: LoginForm(),
           ),

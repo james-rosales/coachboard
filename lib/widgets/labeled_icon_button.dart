@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
 
-
 class LabeledIconButton extends StatelessWidget {
-   const LabeledIconButton({super.key,  required this.label, this.onPress, required this.iconAction,});
-final VoidCallback? onPress;
-final IconData iconAction;
-final String label;
+  const LabeledIconButton({
+    super.key,
+    required this.label,
+    required this.iconAction,
+  });
+
+  final IconData iconAction;
+  final String label;
   @override
   Widget build(BuildContext context) {
-    return  Padding(
-          padding: const EdgeInsets.only(right:5.0,),
-          child: Column(
-            children: [
-              IconButton(
-                icon: Icon(iconAction),
-               
-                onPressed: () {
-onPress?.call();
-                },
-              ),
-              
-               Align(alignment: FractionalOffset.bottomCenter,
-                child: Text(label)),
-            ],
+    return Padding(
+      padding: const EdgeInsets.only(left: 60.0),
+      child: Column(
+        children: [
+          Icon(iconAction),
+          Expanded(
+            child: Text(
+              label,
+              style: const TextStyle(fontSize: 16),
+            ),
           ),
-        );
+        ],
+      ),
+    );
   }
 }
