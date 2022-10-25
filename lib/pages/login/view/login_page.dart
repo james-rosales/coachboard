@@ -1,8 +1,7 @@
-import '../bloc/bloc.dart';
-import 'package:coachboard/pages/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'view.dart';
+
+import '../login.dart';
 
 class LoginPage extends StatelessWidget {
   static const route = '/login';
@@ -13,14 +12,11 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<HomeBloc>(
-      create: (context) => HomeBloc(HomeState()),
-      child: BlocProvider<LoginBloc>(
-        create: (context) => LoginBloc(LoginState()),
-        child: const Scaffold(
-          body: SingleChildScrollView(
-            child: LoginForm(),
-          ),
+    return BlocProvider<LoginBloc>(
+      create: (context) => LoginBloc(LoginState()),
+      child: const Scaffold(
+        body: SingleChildScrollView(
+          child: LoginForm(),
         ),
       ),
     );

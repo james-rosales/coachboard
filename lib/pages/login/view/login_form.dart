@@ -2,7 +2,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../register/view/register_page.dart';
 import '../login.dart';
-import 'package:coachboard/pages/home/home.dart';
+
 import 'package:coachboard/widgets/labeled_textfield.dart';
 import 'package:coachboard/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
@@ -15,10 +15,29 @@ class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var bloc = context.read<LoginBloc>();
-    var homebloc = context.read<HomeBloc>();
 
     return BlocBuilder<LoginBloc, LoginState>(
       builder: (context, state) {
+        void _showAlertDialog(String message, message2) async {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text(message),
+                content: Text(message2),
+                actions: <Widget>[
+                  OutlinedButton(
+                    child: Text('Ok'),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              );
+            },
+          );
+        }
+
         return Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -68,7 +87,10 @@ class LoginForm extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: RoundedButton(
-                onPress: () {},
+                onPress: () {
+                  bloc.add(LoginPressed());
+                  _showAlertDialog('Error', state.errorTextemail);
+                },
                 label: AppLocalizations.of(context)?.login ?? '',
               ),
             ),

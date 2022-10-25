@@ -31,11 +31,6 @@ class LabeledTextfield extends StatelessWidget {
             padding:
                 const EdgeInsets.only(left: 30, right: 30, top: 15, bottom: 15),
             child: TextFormField(
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  errorText: errorText),
               obscureText: obscure,
               onChanged: (value) => onChanged(value),
             ),

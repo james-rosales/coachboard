@@ -11,6 +11,5 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     emit(state.copyWith(
       currentPage: Page.values[event.page],
     ));
-    print(state.currentPage.index);
   }
 }

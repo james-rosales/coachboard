@@ -14,18 +14,18 @@ class AppBarButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 80,
-      child: Column(
-        children: [
-          IconButton(
-            onPressed: () {
-              onPress?.call();
-            },
-            icon: Icon(icon),
-          ),
-          Text(label),
-        ],
+    return TextButton.icon(
+      onPressed: () {
+        onPress?.call();
+      },
+      icon: Icon(
+        icon,
+        color: Colors.white,
+        size: 45,
+      ),
+      label: Text(
+        label,
+        style: const TextStyle(color: Colors.white),
       ),
     );
   }

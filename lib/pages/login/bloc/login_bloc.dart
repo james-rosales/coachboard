@@ -20,7 +20,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     if (state.email.isEmpty) {
       errorEmail = 'Email address cannot be empty';
     } else {
-      errorEmail = null;
+      errorEmail = '';
     }
 
     emit(state.copyWith(

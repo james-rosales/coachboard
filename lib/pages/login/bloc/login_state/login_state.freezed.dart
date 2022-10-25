@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$LoginState {
   String get email => throw _privateConstructorUsedError;
-  String? get errorTextemail => throw _privateConstructorUsedError;
+  String get errorTextemail => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LoginStateCopyWith<LoginState> get copyWith =>
@@ -30,7 +30,7 @@ abstract class $LoginStateCopyWith<$Res> {
           LoginState value, $Res Function(LoginState) then) =
       _$LoginStateCopyWithImpl<$Res, LoginState>;
   @useResult
-  $Res call({String email, String? errorTextemail});
+  $Res call({String email, String errorTextemail});
 }
 
 /// @nodoc
@@ -47,17 +47,17 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
   @override
   $Res call({
     Object? email = null,
-    Object? errorTextemail = freezed,
+    Object? errorTextemail = null,
   }) {
     return _then(_value.copyWith(
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      errorTextemail: freezed == errorTextemail
+      errorTextemail: null == errorTextemail
           ? _value.errorTextemail
           : errorTextemail // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ) as $Val);
   }
 }
@@ -70,7 +70,7 @@ abstract class _$$_LoginStateCopyWith<$Res>
       __$$_LoginStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String email, String? errorTextemail});
+  $Res call({String email, String errorTextemail});
 }
 
 /// @nodoc
@@ -85,17 +85,17 @@ class __$$_LoginStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? email = null,
-    Object? errorTextemail = freezed,
+    Object? errorTextemail = null,
   }) {
     return _then(_$_LoginState(
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      errorTextemail: freezed == errorTextemail
+      errorTextemail: null == errorTextemail
           ? _value.errorTextemail
           : errorTextemail // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -103,14 +103,14 @@ class __$$_LoginStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_LoginState implements _LoginState {
-  _$_LoginState({this.email = '', this.errorTextemail = null});
+  _$_LoginState({this.email = '', this.errorTextemail = ''});
 
   @override
   @JsonKey()
   final String email;
   @override
   @JsonKey()
-  final String? errorTextemail;
+  final String errorTextemail;
 
   @override
   String toString() {
@@ -138,13 +138,13 @@ class _$_LoginState implements _LoginState {
 }
 
 abstract class _LoginState implements LoginState {
-  factory _LoginState({final String email, final String? errorTextemail}) =
+  factory _LoginState({final String email, final String errorTextemail}) =
       _$_LoginState;
 
   @override
   String get email;
   @override
-  String? get errorTextemail;
+  String get errorTextemail;
   @override
   @JsonKey(ignore: true)
   _$$_LoginStateCopyWith<_$_LoginState> get copyWith =>
