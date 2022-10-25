@@ -1,11 +1,8 @@
 import 'package:coachboard/pages/home/home.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import 'pages/appbar/view/view.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:go_router/go_router.dart';
 import 'pages/login/view/view.dart';
 import 'pages/register/view/view.dart';
 
@@ -28,7 +25,7 @@ final GoRouter _router = GoRouter(
       },
     ),
     GoRoute(
-      path: '/login',
+      path: LoginPage.route,
       builder: (BuildContext context, GoRouterState state) {
         return const LoginPage();
       },
@@ -59,10 +56,14 @@ class CoachBoard extends StatelessWidget {
         Locale('en', ''),
       ],
       theme: ThemeData(
+        iconTheme: const IconThemeData(
+          size: 35,
+          color: Colors.white,
+        ),
         primarySwatch: Colors.brown,
         appBarTheme: const AppBarTheme(
-          toolbarTextStyle: TextStyle(
-            fontSize: 18,
+          titleTextStyle: TextStyle(
+            fontSize: 20,
             fontWeight: FontWeight.bold,
             color: Colors.orange,
           ),

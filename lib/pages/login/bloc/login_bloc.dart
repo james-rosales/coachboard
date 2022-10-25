@@ -1,6 +1,5 @@
-import 'package:bloc/bloc.dart';
-
 import 'bloc.dart';
+import 'package:bloc/bloc.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc(super.initialState) {

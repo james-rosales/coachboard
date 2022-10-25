@@ -1,9 +1,20 @@
 {
-    "coachLogin": "Coach Login",
+    "backTo": "Back to",
     "coachBoard": "Coach Board",
+    "coachLogin": "Coach Login",
+    "coachRegistration": "Coach Registration",
+    "confirmPassword": "Confirm Password",
     "email": "Email",
+    "firstName": "First Name",
     "freeHand": "Free Hand",
     "fullCourt": "Full Court",
+    "lastName": "Last Name",
     "login": "Login",
-    "plays": "Plays"
+    "middleName": "Middle Name (Optional)",
+    "noaccountYet": "No account yet?",
+    "password": "Password",
+    "plays": "Plays",
+    "register": "Register",
+    "signup": "Sign-Up",
+    "teamName": "Team Name"
 }

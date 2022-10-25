@@ -1,7 +1,6 @@
 import 'package:coachboard/pages/home/home.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatelessWidget {
   static const route = '/home';
@@ -10,10 +9,14 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size(double.infinity, kToolbarHeight),
-        child: HomeAppBar(),
+    return BlocProvider<HomeBloc>(
+      create: (context) => HomeBloc(HomeState()),
+      child: const Scaffold(
+        appBar: PreferredSize(
+          preferredSize: Size(double.infinity, kToolbarHeight),
+          child: HomeAppBar(),
+        ),
+        body: HomePages(),
       ),
     );
   }
