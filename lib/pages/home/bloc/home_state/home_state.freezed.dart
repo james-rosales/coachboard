@@ -17,6 +17,10 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$HomeState {
   Page get currentPage => throw _privateConstructorUsedError;
+  bool get firstIcon => throw _privateConstructorUsedError;
+  bool get secondIcon => throw _privateConstructorUsedError;
+  bool get thirdIcon => throw _privateConstructorUsedError;
+  bool get fourthIcon => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -28,7 +32,12 @@ abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res, HomeState>;
   @useResult
-  $Res call({Page currentPage});
+  $Res call(
+      {Page currentPage,
+      bool firstIcon,
+      bool secondIcon,
+      bool thirdIcon,
+      bool fourthIcon});
 }
 
 /// @nodoc
@@ -45,12 +54,32 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   @override
   $Res call({
     Object? currentPage = null,
+    Object? firstIcon = null,
+    Object? secondIcon = null,
+    Object? thirdIcon = null,
+    Object? fourthIcon = null,
   }) {
     return _then(_value.copyWith(
       currentPage: null == currentPage
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
               as Page,
+      firstIcon: null == firstIcon
+          ? _value.firstIcon
+          : firstIcon // ignore: cast_nullable_to_non_nullable
+              as bool,
+      secondIcon: null == secondIcon
+          ? _value.secondIcon
+          : secondIcon // ignore: cast_nullable_to_non_nullable
+              as bool,
+      thirdIcon: null == thirdIcon
+          ? _value.thirdIcon
+          : thirdIcon // ignore: cast_nullable_to_non_nullable
+              as bool,
+      fourthIcon: null == fourthIcon
+          ? _value.fourthIcon
+          : fourthIcon // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -62,7 +91,12 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       __$$_HomeStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Page currentPage});
+  $Res call(
+      {Page currentPage,
+      bool firstIcon,
+      bool secondIcon,
+      bool thirdIcon,
+      bool fourthIcon});
 }
 
 /// @nodoc
@@ -77,12 +111,32 @@ class __$$_HomeStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? currentPage = null,
+    Object? firstIcon = null,
+    Object? secondIcon = null,
+    Object? thirdIcon = null,
+    Object? fourthIcon = null,
   }) {
     return _then(_$_HomeState(
       currentPage: null == currentPage
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
               as Page,
+      firstIcon: null == firstIcon
+          ? _value.firstIcon
+          : firstIcon // ignore: cast_nullable_to_non_nullable
+              as bool,
+      secondIcon: null == secondIcon
+          ? _value.secondIcon
+          : secondIcon // ignore: cast_nullable_to_non_nullable
+              as bool,
+      thirdIcon: null == thirdIcon
+          ? _value.thirdIcon
+          : thirdIcon // ignore: cast_nullable_to_non_nullable
+              as bool,
+      fourthIcon: null == fourthIcon
+          ? _value.fourthIcon
+          : fourthIcon // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -90,15 +144,32 @@ class __$$_HomeStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_HomeState implements _HomeState {
-  _$_HomeState({this.currentPage = Page.fullcourt});
+  _$_HomeState(
+      {this.currentPage = Page.fullcourt,
+      this.firstIcon = true,
+      this.secondIcon = true,
+      this.thirdIcon = true,
+      this.fourthIcon = true});
 
   @override
   @JsonKey()
   final Page currentPage;
+  @override
+  @JsonKey()
+  final bool firstIcon;
+  @override
+  @JsonKey()
+  final bool secondIcon;
+  @override
+  @JsonKey()
+  final bool thirdIcon;
+  @override
+  @JsonKey()
+  final bool fourthIcon;
 
   @override
   String toString() {
-    return 'HomeState(currentPage: $currentPage)';
+    return 'HomeState(currentPage: $currentPage, firstIcon: $firstIcon, secondIcon: $secondIcon, thirdIcon: $thirdIcon, fourthIcon: $fourthIcon)';
   }
 
   @override
@@ -107,11 +178,20 @@ class _$_HomeState implements _HomeState {
         (other.runtimeType == runtimeType &&
             other is _$_HomeState &&
             (identical(other.currentPage, currentPage) ||
-                other.currentPage == currentPage));
+                other.currentPage == currentPage) &&
+            (identical(other.firstIcon, firstIcon) ||
+                other.firstIcon == firstIcon) &&
+            (identical(other.secondIcon, secondIcon) ||
+                other.secondIcon == secondIcon) &&
+            (identical(other.thirdIcon, thirdIcon) ||
+                other.thirdIcon == thirdIcon) &&
+            (identical(other.fourthIcon, fourthIcon) ||
+                other.fourthIcon == fourthIcon));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, currentPage);
+  int get hashCode => Object.hash(
+      runtimeType, currentPage, firstIcon, secondIcon, thirdIcon, fourthIcon);
 
   @JsonKey(ignore: true)
   @override
@@ -121,10 +201,23 @@ class _$_HomeState implements _HomeState {
 }
 
 abstract class _HomeState implements HomeState {
-  factory _HomeState({final Page currentPage}) = _$_HomeState;
+  factory _HomeState(
+      {final Page currentPage,
+      final bool firstIcon,
+      final bool secondIcon,
+      final bool thirdIcon,
+      final bool fourthIcon}) = _$_HomeState;
 
   @override
   Page get currentPage;
+  @override
+  bool get firstIcon;
+  @override
+  bool get secondIcon;
+  @override
+  bool get thirdIcon;
+  @override
+  bool get fourthIcon;
   @override
   @JsonKey(ignore: true)
   _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>

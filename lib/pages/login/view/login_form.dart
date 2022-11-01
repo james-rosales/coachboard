@@ -1,43 +1,20 @@
-import 'package:go_router/go_router.dart';
-
 import '../../register/view/register_page.dart';
 import '../login.dart';
-
 import 'package:coachboard/widgets/labeled_textfield.dart';
 import 'package:coachboard/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var bloc = context.read<LoginBloc>();
-
     return BlocBuilder<LoginBloc, LoginState>(
       builder: (context, state) {
-        void _showAlertDialog(String message, message2) async {
-          showDialog(
-            context: context,
-            builder: (BuildContext context) {
-              return AlertDialog(
-                title: Text(message),
-                content: Text(message2),
-                actions: <Widget>[
-                  OutlinedButton(
-                    child: Text('Ok'),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                  ),
-                ],
-              );
-            },
-          );
-        }
-
+        var bloc = context.read<LoginBloc>();
         return Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -52,7 +29,7 @@ class LoginForm extends StatelessWidget {
               ),
             ),
             LabeledTextfield(
-              errorText: state.errorTextemail,
+              errorText: state.email.value,
               label: AppLocalizations.of(context)?.email ?? '',
               onChanged: (value) => bloc.add(
                 EmailChanged(value),
@@ -87,10 +64,7 @@ class LoginForm extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: RoundedButton(
-                onPress: () {
-                  bloc.add(LoginPressed());
-                  _showAlertDialog('Error', state.errorTextemail);
-                },
+                onPress: () => bloc.add(LoginPressed()),
                 label: AppLocalizations.of(context)?.login ?? '',
               ),
             ),

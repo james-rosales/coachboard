@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
       create: (context) => HomeBloc(HomeState()),
       child: const Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size(double.infinity, 100),
+          preferredSize: Size(double.infinity, 60),
           child: HomeAppBar(),
         ),
         body: HomePages(),

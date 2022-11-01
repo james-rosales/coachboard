@@ -49,9 +49,22 @@ class CoachBoard extends StatelessWidget {
         Locale('en', ''),
       ],
       theme: ThemeData(
-        textTheme: const TextTheme(
-          bodyText2: TextStyle(color: Color.fromARGB(255, 124, 124, 125)),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
+            foregroundColor: Colors.white,
+            backgroundColor: Colors.orange,
+          ),
         ),
+        dialogTheme: const DialogTheme(
+            titleTextStyle: TextStyle(
+              color: Colors.orange,
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
+            contentTextStyle: TextStyle(color: Colors.grey, fontSize: 18)),
+        textTheme: const TextTheme(
+            bodyText2: TextStyle(color: Color.fromARGB(255, 124, 124, 125)),
+            subtitle1: TextStyle(color: Colors.grey)),
         inputDecorationTheme: InputDecorationTheme(
           enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(

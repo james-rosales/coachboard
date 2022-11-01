@@ -16,8 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$LoginState {
-  String get email => throw _privateConstructorUsedError;
-  String get errorTextemail => throw _privateConstructorUsedError;
+  TextFieldInput get email => throw _privateConstructorUsedError;
+  TextFieldInput get password => throw _privateConstructorUsedError;
+  RequestStatus get requestStatus => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LoginStateCopyWith<LoginState> get copyWith =>
@@ -30,7 +31,13 @@ abstract class $LoginStateCopyWith<$Res> {
           LoginState value, $Res Function(LoginState) then) =
       _$LoginStateCopyWithImpl<$Res, LoginState>;
   @useResult
-  $Res call({String email, String errorTextemail});
+  $Res call(
+      {TextFieldInput email,
+      TextFieldInput password,
+      RequestStatus requestStatus});
+
+  $TextFieldInputCopyWith<$Res> get email;
+  $TextFieldInputCopyWith<$Res> get password;
 }
 
 /// @nodoc
@@ -47,18 +54,39 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
   @override
   $Res call({
     Object? email = null,
-    Object? errorTextemail = null,
+    Object? password = null,
+    Object? requestStatus = null,
   }) {
     return _then(_value.copyWith(
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      errorTextemail: null == errorTextemail
-          ? _value.errorTextemail
-          : errorTextemail // ignore: cast_nullable_to_non_nullable
-              as String,
+              as TextFieldInput,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as TextFieldInput,
+      requestStatus: null == requestStatus
+          ? _value.requestStatus
+          : requestStatus // ignore: cast_nullable_to_non_nullable
+              as RequestStatus,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TextFieldInputCopyWith<$Res> get email {
+    return $TextFieldInputCopyWith<$Res>(_value.email, (value) {
+      return _then(_value.copyWith(email: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TextFieldInputCopyWith<$Res> get password {
+    return $TextFieldInputCopyWith<$Res>(_value.password, (value) {
+      return _then(_value.copyWith(password: value) as $Val);
+    });
   }
 }
 
@@ -70,7 +98,15 @@ abstract class _$$_LoginStateCopyWith<$Res>
       __$$_LoginStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String email, String errorTextemail});
+  $Res call(
+      {TextFieldInput email,
+      TextFieldInput password,
+      RequestStatus requestStatus});
+
+  @override
+  $TextFieldInputCopyWith<$Res> get email;
+  @override
+  $TextFieldInputCopyWith<$Res> get password;
 }
 
 /// @nodoc
@@ -85,17 +121,22 @@ class __$$_LoginStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? email = null,
-    Object? errorTextemail = null,
+    Object? password = null,
+    Object? requestStatus = null,
   }) {
     return _then(_$_LoginState(
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      errorTextemail: null == errorTextemail
-          ? _value.errorTextemail
-          : errorTextemail // ignore: cast_nullable_to_non_nullable
-              as String,
+              as TextFieldInput,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as TextFieldInput,
+      requestStatus: null == requestStatus
+          ? _value.requestStatus
+          : requestStatus // ignore: cast_nullable_to_non_nullable
+              as RequestStatus,
     ));
   }
 }
@@ -103,18 +144,24 @@ class __$$_LoginStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_LoginState implements _LoginState {
-  _$_LoginState({this.email = '', this.errorTextemail = ''});
+  _$_LoginState(
+      {this.email = const TextFieldInput(),
+      this.password = const TextFieldInput(),
+      this.requestStatus = RequestStatus.waiting});
 
   @override
   @JsonKey()
-  final String email;
+  final TextFieldInput email;
   @override
   @JsonKey()
-  final String errorTextemail;
+  final TextFieldInput password;
+  @override
+  @JsonKey()
+  final RequestStatus requestStatus;
 
   @override
   String toString() {
-    return 'LoginState(email: $email, errorTextemail: $errorTextemail)';
+    return 'LoginState(email: $email, password: $password, requestStatus: $requestStatus)';
   }
 
   @override
@@ -123,12 +170,14 @@ class _$_LoginState implements _LoginState {
         (other.runtimeType == runtimeType &&
             other is _$_LoginState &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.errorTextemail, errorTextemail) ||
-                other.errorTextemail == errorTextemail));
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.requestStatus, requestStatus) ||
+                other.requestStatus == requestStatus));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, email, errorTextemail);
+  int get hashCode => Object.hash(runtimeType, email, password, requestStatus);
 
   @JsonKey(ignore: true)
   @override
@@ -138,13 +187,17 @@ class _$_LoginState implements _LoginState {
 }
 
 abstract class _LoginState implements LoginState {
-  factory _LoginState({final String email, final String errorTextemail}) =
-      _$_LoginState;
+  factory _LoginState(
+      {final TextFieldInput email,
+      final TextFieldInput password,
+      final RequestStatus requestStatus}) = _$_LoginState;
 
   @override
-  String get email;
+  TextFieldInput get email;
   @override
-  String get errorTextemail;
+  TextFieldInput get password;
+  @override
+  RequestStatus get requestStatus;
   @override
   @JsonKey(ignore: true)
   _$$_LoginStateCopyWith<_$_LoginState> get copyWith =>

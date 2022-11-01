@@ -1,8 +1,5 @@
-import 'package:coachboard/pages/login/view/login_router.dart';
-
 import '../home.dart';
 import 'package:coachboard/pages/login/view/view.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,13 +17,15 @@ class HomePages extends StatelessWidget {
         pageController.jumpToPage(state.currentPage.index);
       },
       child: PageView(
-        controller: pageController,
         physics: const NeverScrollableScrollPhysics(),
+        controller: pageController,
         children: [
-          const Text('index 0'),
-          const Text('index 1'),
-          const Text('index 2'),
+          const Text('Full Court'),
+          const Text('Free Hand'),
+          const Text('Plays'),
           LoginRouter(),
+          const Text('Half Court'),
+          const Text('Magnet'),
         ],
       ),
     );
