@@ -16,13 +16,14 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$RegisterState {
-  TextFieldInput get firstName => throw _privateConstructorUsedError;
-  TextFieldInput get lastName => throw _privateConstructorUsedError;
-  TextFieldInput get middleName => throw _privateConstructorUsedError;
-  TextFieldInput get email => throw _privateConstructorUsedError;
-  TextFieldInput get password => throw _privateConstructorUsedError;
-  TextFieldInput get confirmPassword => throw _privateConstructorUsedError;
-  TextFieldInput get teamName => throw _privateConstructorUsedError;
+  ErrorType get errorType => throw _privateConstructorUsedError;
+  String? get errorText => throw _privateConstructorUsedError;
+  String get firstName => throw _privateConstructorUsedError;
+  String get lastName => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
+  String get confirmpassword => throw _privateConstructorUsedError;
+  String get teamname => throw _privateConstructorUsedError;
   RequestStatus get requestStatus => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -37,22 +38,15 @@ abstract class $RegisterStateCopyWith<$Res> {
       _$RegisterStateCopyWithImpl<$Res, RegisterState>;
   @useResult
   $Res call(
-      {TextFieldInput firstName,
-      TextFieldInput lastName,
-      TextFieldInput middleName,
-      TextFieldInput email,
-      TextFieldInput password,
-      TextFieldInput confirmPassword,
-      TextFieldInput teamName,
+      {ErrorType errorType,
+      String? errorText,
+      String firstName,
+      String lastName,
+      String email,
+      String password,
+      String confirmpassword,
+      String teamname,
       RequestStatus requestStatus});
-
-  $TextFieldInputCopyWith<$Res> get firstName;
-  $TextFieldInputCopyWith<$Res> get lastName;
-  $TextFieldInputCopyWith<$Res> get middleName;
-  $TextFieldInputCopyWith<$Res> get email;
-  $TextFieldInputCopyWith<$Res> get password;
-  $TextFieldInputCopyWith<$Res> get confirmPassword;
-  $TextFieldInputCopyWith<$Res> get teamName;
 }
 
 /// @nodoc
@@ -68,105 +62,54 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? errorType = null,
+    Object? errorText = freezed,
     Object? firstName = null,
     Object? lastName = null,
-    Object? middleName = null,
     Object? email = null,
     Object? password = null,
-    Object? confirmPassword = null,
-    Object? teamName = null,
+    Object? confirmpassword = null,
+    Object? teamname = null,
     Object? requestStatus = null,
   }) {
     return _then(_value.copyWith(
+      errorType: null == errorType
+          ? _value.errorType
+          : errorType // ignore: cast_nullable_to_non_nullable
+              as ErrorType,
+      errorText: freezed == errorText
+          ? _value.errorText
+          : errorText // ignore: cast_nullable_to_non_nullable
+              as String?,
       firstName: null == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
-              as TextFieldInput,
+              as String,
       lastName: null == lastName
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
-              as TextFieldInput,
-      middleName: null == middleName
-          ? _value.middleName
-          : middleName // ignore: cast_nullable_to_non_nullable
-              as TextFieldInput,
+              as String,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as TextFieldInput,
+              as String,
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
-              as TextFieldInput,
-      confirmPassword: null == confirmPassword
-          ? _value.confirmPassword
-          : confirmPassword // ignore: cast_nullable_to_non_nullable
-              as TextFieldInput,
-      teamName: null == teamName
-          ? _value.teamName
-          : teamName // ignore: cast_nullable_to_non_nullable
-              as TextFieldInput,
+              as String,
+      confirmpassword: null == confirmpassword
+          ? _value.confirmpassword
+          : confirmpassword // ignore: cast_nullable_to_non_nullable
+              as String,
+      teamname: null == teamname
+          ? _value.teamname
+          : teamname // ignore: cast_nullable_to_non_nullable
+              as String,
       requestStatus: null == requestStatus
           ? _value.requestStatus
           : requestStatus // ignore: cast_nullable_to_non_nullable
               as RequestStatus,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $TextFieldInputCopyWith<$Res> get firstName {
-    return $TextFieldInputCopyWith<$Res>(_value.firstName, (value) {
-      return _then(_value.copyWith(firstName: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $TextFieldInputCopyWith<$Res> get lastName {
-    return $TextFieldInputCopyWith<$Res>(_value.lastName, (value) {
-      return _then(_value.copyWith(lastName: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $TextFieldInputCopyWith<$Res> get middleName {
-    return $TextFieldInputCopyWith<$Res>(_value.middleName, (value) {
-      return _then(_value.copyWith(middleName: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $TextFieldInputCopyWith<$Res> get email {
-    return $TextFieldInputCopyWith<$Res>(_value.email, (value) {
-      return _then(_value.copyWith(email: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $TextFieldInputCopyWith<$Res> get password {
-    return $TextFieldInputCopyWith<$Res>(_value.password, (value) {
-      return _then(_value.copyWith(password: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $TextFieldInputCopyWith<$Res> get confirmPassword {
-    return $TextFieldInputCopyWith<$Res>(_value.confirmPassword, (value) {
-      return _then(_value.copyWith(confirmPassword: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $TextFieldInputCopyWith<$Res> get teamName {
-    return $TextFieldInputCopyWith<$Res>(_value.teamName, (value) {
-      return _then(_value.copyWith(teamName: value) as $Val);
-    });
   }
 }
 
@@ -179,29 +122,15 @@ abstract class _$$_RegisterStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {TextFieldInput firstName,
-      TextFieldInput lastName,
-      TextFieldInput middleName,
-      TextFieldInput email,
-      TextFieldInput password,
-      TextFieldInput confirmPassword,
-      TextFieldInput teamName,
+      {ErrorType errorType,
+      String? errorText,
+      String firstName,
+      String lastName,
+      String email,
+      String password,
+      String confirmpassword,
+      String teamname,
       RequestStatus requestStatus});
-
-  @override
-  $TextFieldInputCopyWith<$Res> get firstName;
-  @override
-  $TextFieldInputCopyWith<$Res> get lastName;
-  @override
-  $TextFieldInputCopyWith<$Res> get middleName;
-  @override
-  $TextFieldInputCopyWith<$Res> get email;
-  @override
-  $TextFieldInputCopyWith<$Res> get password;
-  @override
-  $TextFieldInputCopyWith<$Res> get confirmPassword;
-  @override
-  $TextFieldInputCopyWith<$Res> get teamName;
 }
 
 /// @nodoc
@@ -215,44 +144,49 @@ class __$$_RegisterStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? errorType = null,
+    Object? errorText = freezed,
     Object? firstName = null,
     Object? lastName = null,
-    Object? middleName = null,
     Object? email = null,
     Object? password = null,
-    Object? confirmPassword = null,
-    Object? teamName = null,
+    Object? confirmpassword = null,
+    Object? teamname = null,
     Object? requestStatus = null,
   }) {
     return _then(_$_RegisterState(
+      errorType: null == errorType
+          ? _value.errorType
+          : errorType // ignore: cast_nullable_to_non_nullable
+              as ErrorType,
+      errorText: freezed == errorText
+          ? _value.errorText
+          : errorText // ignore: cast_nullable_to_non_nullable
+              as String?,
       firstName: null == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
-              as TextFieldInput,
+              as String,
       lastName: null == lastName
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
-              as TextFieldInput,
-      middleName: null == middleName
-          ? _value.middleName
-          : middleName // ignore: cast_nullable_to_non_nullable
-              as TextFieldInput,
+              as String,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as TextFieldInput,
+              as String,
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
-              as TextFieldInput,
-      confirmPassword: null == confirmPassword
-          ? _value.confirmPassword
-          : confirmPassword // ignore: cast_nullable_to_non_nullable
-              as TextFieldInput,
-      teamName: null == teamName
-          ? _value.teamName
-          : teamName // ignore: cast_nullable_to_non_nullable
-              as TextFieldInput,
+              as String,
+      confirmpassword: null == confirmpassword
+          ? _value.confirmpassword
+          : confirmpassword // ignore: cast_nullable_to_non_nullable
+              as String,
+      teamname: null == teamname
+          ? _value.teamname
+          : teamname // ignore: cast_nullable_to_non_nullable
+              as String,
       requestStatus: null == requestStatus
           ? _value.requestStatus
           : requestStatus // ignore: cast_nullable_to_non_nullable
@@ -265,43 +199,47 @@ class __$$_RegisterStateCopyWithImpl<$Res>
 
 class _$_RegisterState implements _RegisterState {
   _$_RegisterState(
-      {this.firstName = const TextFieldInput(),
-      this.lastName = const TextFieldInput(),
-      this.middleName = const TextFieldInput(),
-      this.email = const TextFieldInput(),
-      this.password = const TextFieldInput(),
-      this.confirmPassword = const TextFieldInput(),
-      this.teamName = const TextFieldInput(),
+      {this.errorType = ErrorType.none,
+      this.errorText = '',
+      this.firstName = '',
+      this.lastName = '',
+      this.email = '',
+      this.password = '',
+      this.confirmpassword = '',
+      this.teamname = '',
       this.requestStatus = RequestStatus.waiting});
 
   @override
   @JsonKey()
-  final TextFieldInput firstName;
+  final ErrorType errorType;
   @override
   @JsonKey()
-  final TextFieldInput lastName;
+  final String? errorText;
   @override
   @JsonKey()
-  final TextFieldInput middleName;
+  final String firstName;
   @override
   @JsonKey()
-  final TextFieldInput email;
+  final String lastName;
   @override
   @JsonKey()
-  final TextFieldInput password;
+  final String email;
   @override
   @JsonKey()
-  final TextFieldInput confirmPassword;
+  final String password;
   @override
   @JsonKey()
-  final TextFieldInput teamName;
+  final String confirmpassword;
+  @override
+  @JsonKey()
+  final String teamname;
   @override
   @JsonKey()
   final RequestStatus requestStatus;
 
   @override
   String toString() {
-    return 'RegisterState(firstName: $firstName, lastName: $lastName, middleName: $middleName, email: $email, password: $password, confirmPassword: $confirmPassword, teamName: $teamName, requestStatus: $requestStatus)';
+    return 'RegisterState(errorType: $errorType, errorText: $errorText, firstName: $firstName, lastName: $lastName, email: $email, password: $password, confirmpassword: $confirmpassword, teamname: $teamname, requestStatus: $requestStatus)';
   }
 
   @override
@@ -309,26 +247,28 @@ class _$_RegisterState implements _RegisterState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RegisterState &&
+            (identical(other.errorType, errorType) ||
+                other.errorType == errorType) &&
+            (identical(other.errorText, errorText) ||
+                other.errorText == errorText) &&
             (identical(other.firstName, firstName) ||
                 other.firstName == firstName) &&
             (identical(other.lastName, lastName) ||
                 other.lastName == lastName) &&
-            (identical(other.middleName, middleName) ||
-                other.middleName == middleName) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password) &&
-            (identical(other.confirmPassword, confirmPassword) ||
-                other.confirmPassword == confirmPassword) &&
-            (identical(other.teamName, teamName) ||
-                other.teamName == teamName) &&
+            (identical(other.confirmpassword, confirmpassword) ||
+                other.confirmpassword == confirmpassword) &&
+            (identical(other.teamname, teamname) ||
+                other.teamname == teamname) &&
             (identical(other.requestStatus, requestStatus) ||
                 other.requestStatus == requestStatus));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, firstName, lastName, middleName,
-      email, password, confirmPassword, teamName, requestStatus);
+  int get hashCode => Object.hash(runtimeType, errorType, errorText, firstName,
+      lastName, email, password, confirmpassword, teamname, requestStatus);
 
   @JsonKey(ignore: true)
   @override
@@ -339,29 +279,32 @@ class _$_RegisterState implements _RegisterState {
 
 abstract class _RegisterState implements RegisterState {
   factory _RegisterState(
-      {final TextFieldInput firstName,
-      final TextFieldInput lastName,
-      final TextFieldInput middleName,
-      final TextFieldInput email,
-      final TextFieldInput password,
-      final TextFieldInput confirmPassword,
-      final TextFieldInput teamName,
+      {final ErrorType errorType,
+      final String? errorText,
+      final String firstName,
+      final String lastName,
+      final String email,
+      final String password,
+      final String confirmpassword,
+      final String teamname,
       final RequestStatus requestStatus}) = _$_RegisterState;
 
   @override
-  TextFieldInput get firstName;
+  ErrorType get errorType;
   @override
-  TextFieldInput get lastName;
+  String? get errorText;
   @override
-  TextFieldInput get middleName;
+  String get firstName;
   @override
-  TextFieldInput get email;
+  String get lastName;
   @override
-  TextFieldInput get password;
+  String get email;
   @override
-  TextFieldInput get confirmPassword;
+  String get password;
   @override
-  TextFieldInput get teamName;
+  String get confirmpassword;
+  @override
+  String get teamname;
   @override
   RequestStatus get requestStatus;
   @override

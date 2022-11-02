@@ -1,9 +1,11 @@
+import 'package:coachboard/models/result/result.dart';
+import 'package:coachboard/models/text_field_input/text_field_input.dart';
 import 'package:coachboard/pages/register/register.dart';
-import 'package:coachboard/widgets/message_box.dart';
+import 'package:coachboard/widgets/message_dialog.dart';
+import 'package:coachboard/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../models/result/result.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RegisterPage extends StatelessWidget {
   static const route = '/register';
@@ -15,36 +17,63 @@ class RegisterPage extends StatelessWidget {
     switch (state.requestStatus) {
       case RequestStatus.inProgress:
         showDialog(
+          barrierDismissible: false,
           useRootNavigator: false,
           context: context,
           builder: (BuildContext context) {
-            return const Dialog(
-              child: MessageBox(
-                content: 'Please wait...',
-                title: 'Loggin in',
+            return MessageDialog(
+              title: AppLocalizations.of(context)?.createAccount ?? '',
+              content: Column(
+                children: [
+                  const CircularProgressIndicator(
+                    color: Colors.orange,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 50.0),
+                    child: Text(
+                      AppLocalizations.of(context)?.pleaseWait ?? '',
+                      style: const TextStyle(fontSize: 18),
+                    ),
+                  ),
+                ],
               ),
             );
           },
         );
         break;
       case RequestStatus.success:
-        Navigator.of(context).pop();
+        // Navigator.of(context).pop();
         break;
       case RequestStatus.failure:
-        if (state.firstName.value.isEmpty) {
-          showDialog(
-            barrierDismissible: false,
-            useRootNavigator: false,
-            context: context,
-            builder: (BuildContext context) {
-              return Dialog(
-                child: MessageBox(
-                  content: state.firstName.error,
-                  title: 'Error',
-                ),
-              );
-            },
-          );
+        switch (state.errorType) {
+          case ErrorType.empty:
+            showDialog(
+              barrierDismissible: false,
+              useRootNavigator: false,
+              context: context,
+              builder: (BuildContext context) {
+                return MessageDialog(
+                  title: AppLocalizations.of(context)?.notice ?? '',
+                  content: Column(
+                    children: [
+                      Text(
+                        state.errorText ?? '',
+                        style: const TextStyle(fontSize: 18),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 60.0),
+                        child: RoundedButton(
+                          onPress: () => Navigator.of(context).pop(),
+                          label: AppLocalizations.of(context)?.ok ?? '',
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            break;
+          default:
         }
         break;
       default:
@@ -54,15 +83,19 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<RegisterBloc>(
-        create: (context) => RegisterBloc(RegisterState()),
-        child: Builder(builder: (context) {
+      create: (context) => RegisterBloc(RegisterState()),
+      child: Builder(
+        builder: (context) {
           return BlocListener<RegisterBloc, RegisterState>(
-              listener: (context, state) => listener(context, state),
-              child: const Scaffold(
-                body: SingleChildScrollView(
-                  child: RegisterForm(),
-                ),
-              ));
-        }));
+            listener: (context, state) => listener(context, state),
+            child: const Scaffold(
+              body: SingleChildScrollView(
+                child: RegisterForm(),
+              ),
+            ),
+          );
+        },
+      ),
+    );
   }
 }

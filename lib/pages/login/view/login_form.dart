@@ -1,5 +1,5 @@
-import '../../register/view/register_page.dart';
-import '../login.dart';
+import 'package:coachboard/pages/login/login.dart';
+import 'package:coachboard/pages/register/view/view.dart';
 import 'package:coachboard/widgets/labeled_textfield.dart';
 import 'package:coachboard/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
@@ -64,6 +64,7 @@ class LoginForm extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: RoundedButton(
+                color: const Color.fromARGB(198, 0, 0, 0),
                 onPress: () => bloc.add(LoginPressed()),
                 label: AppLocalizations.of(context)?.login ?? '',
               ),

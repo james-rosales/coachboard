@@ -14,12 +14,6 @@ class LastNameChanged extends RegisterEvent {
   LastNameChanged(this.lastName);
 }
 
-class MiddleNameChanged extends RegisterEvent {
-  final String middleName;
-
-  MiddleNameChanged(this.middleName);
-}
-
 class EmailChanged extends RegisterEvent {
   final String email;
 
@@ -33,15 +27,15 @@ class PasswordChanged extends RegisterEvent {
 }
 
 class ConfirmPasswordChanged extends RegisterEvent {
-  final String confirmPassword;
+  final String confirmpassword;
 
-  ConfirmPasswordChanged(this.confirmPassword);
+  ConfirmPasswordChanged(this.confirmpassword);
 }
 
 class TeamNameChanged extends RegisterEvent {
-  final String teamName;
+  final String teamname;
 
-  TeamNameChanged(this.teamName);
+  TeamNameChanged(this.teamname);
 }
 
 class RegisterPressed extends RegisterEvent {

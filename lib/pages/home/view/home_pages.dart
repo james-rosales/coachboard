@@ -1,4 +1,4 @@
-import '../home.dart';
+import 'package:coachboard/pages/home/home.dart';
 import 'package:coachboard/pages/login/view/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,12 +20,47 @@ class HomePages extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(),
         controller: pageController,
         children: [
-          const Text('Full Court'),
-          const Text('Free Hand'),
-          const Text('Plays'),
+          const Text(
+            'Full Court',
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const Text(
+            'Free Hand',
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const Text(
+            'Plays',
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.center,
+          ),
           LoginRouter(),
-          const Text('Half Court'),
-          const Text('Magnet'),
+          const Text(
+            'Half Court',
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const Text(
+            'Magnet',
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.center,
+          ),
         ],
       ),
     );

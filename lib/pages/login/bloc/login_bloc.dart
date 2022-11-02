@@ -1,8 +1,7 @@
-import 'package:coachboard/models/result/result.dart';
-import 'package:coachboard/models/text_field_input/text_field_input.dart';
-
 import 'bloc.dart';
 import 'package:bloc/bloc.dart';
+import 'package:coachboard/models/result/result.dart';
+import 'package:coachboard/models/text_field_input/text_field_input.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc(super.initialState) {
@@ -27,17 +26,19 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   Future<void> _loginPressed(
       LoginPressed event, Emitter<LoginState> emit) async {
-    var emailError = state.email.error;
+    var errorText = state.email.error;
+    emit(state.copyWith(
+      requestStatus: RequestStatus.waiting,
+    ));
     if (state.email.value.isEmpty) {
-      emailError = 'Invalid Email Address';
-      emit(
-        state.copyWith(
-          requestStatus: RequestStatus.failure,
-          email: state.email.copyWith(
-            error: emailError,
-          ),
+      errorText = 'Invalid Email Address';
+      emit(state.copyWith(
+        requestStatus: RequestStatus.failure,
+        email: state.email.copyWith(
+          errorType: ErrorType.empty,
+          error: errorText,
         ),
-      );
+      ));
     } else {
       emit(state.copyWith(
         requestStatus: RequestStatus.inProgress,

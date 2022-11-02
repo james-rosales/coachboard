@@ -4,6 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+IconData _appbarIcon(isBool) {
+  if (isBool) {
+    return Icons.circle;
+  }
+  return FontAwesomeIcons.circleHalfStroke;
+}
+
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key});
 
@@ -27,9 +34,7 @@ class HomeAppBar extends StatelessWidget {
                     state.firstIcon,
                   ),
                 ),
-                icon: state.firstIcon
-                    ? Icons.circle
-                    : FontAwesomeIcons.circleHalfStroke,
+                icon: _appbarIcon(state.firstIcon),
                 label: state.firstIcon
                     ? AppLocalizations.of(context)?.fullCourt ?? ''
                     : AppLocalizations.of(context)?.halfCourt ?? '',

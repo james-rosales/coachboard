@@ -56,12 +56,12 @@ class CoachBoard extends StatelessWidget {
           ),
         ),
         dialogTheme: const DialogTheme(
-            titleTextStyle: TextStyle(
-              color: Colors.orange,
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-            ),
-            contentTextStyle: TextStyle(color: Colors.grey, fontSize: 18)),
+          titleTextStyle: TextStyle(
+            color: Colors.orange,
+            fontWeight: FontWeight.bold,
+            fontSize: 23,
+          ),
+        ),
         textTheme: const TextTheme(
             bodyText2: TextStyle(color: Color.fromARGB(255, 124, 124, 125)),
             subtitle1: TextStyle(color: Colors.grey)),

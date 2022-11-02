@@ -1,8 +1,7 @@
 import 'package:coachboard/pages/login/login.dart';
+import 'package:coachboard/pages/register/view/view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../register/view/register_page.dart';
 
 class LoginRouter extends StatelessWidget {
   LoginRouter({super.key});

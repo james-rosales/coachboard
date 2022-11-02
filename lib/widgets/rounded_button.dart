@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
 class RoundedButton extends StatelessWidget {
+  final String label;
+  final VoidCallback? onPress;
+  final Color? color;
   const RoundedButton({
     super.key,
     required this.label,
     this.onPress,
+    this.color,
   });
-  final String label;
-  final VoidCallback? onPress;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -15,7 +18,7 @@ class RoundedButton extends StatelessWidget {
       height: 60,
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
-          backgroundColor: const Color.fromARGB(198, 0, 0, 0),
+          backgroundColor: color,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
               5,

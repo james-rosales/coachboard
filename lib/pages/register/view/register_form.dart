@@ -1,11 +1,10 @@
+import 'package:coachboard/pages/register/register.dart';
 import 'package:coachboard/widgets/labeled_textfield.dart';
 import 'package:coachboard/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
-
-import '../bloc/bloc.dart';
 
 class RegisterForm extends StatelessWidget {
   const RegisterForm({super.key});
@@ -30,12 +29,12 @@ class RegisterForm extends StatelessWidget {
           LabeledTextfield(
             label: AppLocalizations.of(context)?.firstName ?? '',
             obscure: false,
-            onChanged: (value) {},
+            onChanged: (value) => bloc.add(FirstNameChanged(value)),
           ),
           LabeledTextfield(
             label: AppLocalizations.of(context)?.lastName ?? '',
             obscure: false,
-            onChanged: (value) {},
+            onChanged: (value) => bloc.add(LastNameChanged(value)),
           ),
           LabeledTextfield(
             label: AppLocalizations.of(context)?.middleName ?? '',
@@ -45,24 +44,25 @@ class RegisterForm extends StatelessWidget {
           LabeledTextfield(
             label: AppLocalizations.of(context)?.email ?? '',
             obscure: false,
-            onChanged: (value) {},
+            onChanged: (value) => bloc.add(EmailChanged(value)),
           ),
           LabeledTextfield(
             label: AppLocalizations.of(context)?.password ?? '',
             obscure: true,
-            onChanged: (value) {},
+            onChanged: (value) => bloc.add(PasswordChanged(value)),
           ),
           LabeledTextfield(
             label: AppLocalizations.of(context)?.confirmPassword ?? '',
             obscure: true,
-            onChanged: (value) {},
+            onChanged: (value) => bloc.add(ConfirmPasswordChanged(value)),
           ),
           LabeledTextfield(
             label: AppLocalizations.of(context)?.teamName ?? '',
             obscure: false,
-            onChanged: (value) {},
+            onChanged: (value) => bloc.add(TeamNameChanged(value)),
           ),
           RoundedButton(
+            color: const Color.fromARGB(198, 0, 0, 0),
             onPress: () => bloc.add(RegisterPressed()),
             label: AppLocalizations.of(context)?.register ?? '',
           ),
