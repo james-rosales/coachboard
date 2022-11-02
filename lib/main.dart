@@ -80,10 +80,8 @@ class CoachBoard extends StatelessWidget {
           size: 35,
           color: Colors.white,
         ),
-        colorScheme: ColorScheme.fromSwatch().copyWith(
-          primary: const Color.fromARGB(255, 59, 58, 58),
-        ),
         appBarTheme: const AppBarTheme(
+          backgroundColor: Color.fromARGB(255, 59, 58, 58),
           titleTextStyle: TextStyle(
             fontSize: 30,
             fontWeight: FontWeight.bold,

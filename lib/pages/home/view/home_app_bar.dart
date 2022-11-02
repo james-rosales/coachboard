@@ -67,9 +67,40 @@ class HomeAppBar extends StatelessWidget {
                             backgroundColor: Colors.white,
                             elevation: 0,
                             child: Container(
-                              height: 100,
-                              width: 100,
-                              color: Colors.red,
+                              height: 80,
+                              width: 400,
+                              color: const Color.fromARGB(255, 59, 58, 58),
+                              child: TextButton(
+                                onPressed: () {},
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: const [
+                                    Icon(
+                                      Icons.work_history_outlined,
+                                      color: Colors.white,
+                                    ),
+                                    Text(
+                                      'View Plays',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 18),
+                                    ),
+                                    VerticalDivider(
+                                      thickness: 1,
+                                      color: Colors.black,
+                                    ),
+                                    Icon(
+                                      Icons.brush_outlined,
+                                      color: Colors.white,
+                                    ),
+                                    Text(
+                                      'Create Play',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 18),
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ),
                           );
                         });
