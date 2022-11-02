@@ -45,39 +45,82 @@ class RegisterPage extends StatelessWidget {
         // Navigator.of(context).pop();
         break;
       case RequestStatus.failure:
-        switch (state.errorType) {
+        switch (state.firstName.errorType) {
           case ErrorType.empty:
-            showDialog(
-              barrierDismissible: false,
-              useRootNavigator: false,
-              context: context,
-              builder: (BuildContext context) {
-                return MessageDialog(
-                  title: AppLocalizations.of(context)?.notice ?? '',
-                  content: Column(
-                    children: [
-                      Text(
-                        state.errorText ?? '',
-                        style: const TextStyle(fontSize: 18),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 60.0),
-                        child: RoundedButton(
-                          onPress: () => Navigator.of(context).pop(),
-                          label: AppLocalizations.of(context)?.ok ?? '',
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            );
-            break;
+            _showErrorMessage(context, 'First name must not be empty');
+            return;
           default:
         }
-        break;
+        switch (state.lastName.errorType) {
+          case ErrorType.empty:
+            _showErrorMessage(context, 'Last name must not be empty');
+            return;
+          default:
+        }
+
+        switch (state.email.errorType) {
+          case ErrorType.empty:
+            _showErrorMessage(context, 'Email must not be empty');
+            return;
+          default:
+        }
+        switch (state.email.errorType) {
+          case ErrorType.format:
+            _showErrorMessage(context, 'Invalid email address');
+            return;
+          default:
+        }
+        switch (state.password.errorType) {
+          case ErrorType.empty:
+            _showErrorMessage(context, 'Password must not be empty');
+            return;
+          default:
+        }
+
+        switch (state.confirmpassword.errorType) {
+          case ErrorType.format:
+            _showErrorMessage(context, 'Password does not match');
+            return;
+          default:
+        }
+
+        switch (state.teamname.errorType) {
+          case ErrorType.empty:
+            _showErrorMessage(context, 'Team name must not be empty');
+            return;
+          default:
+        }
+        return;
       default:
     }
+  }
+
+  void _showErrorMessage(BuildContext context, String errorText) {
+    showDialog(
+      barrierDismissible: false,
+      useRootNavigator: false,
+      context: context,
+      builder: (BuildContext context) {
+        return MessageDialog(
+          title: AppLocalizations.of(context)?.notice ?? '',
+          content: Column(
+            children: [
+              Text(
+                errorText,
+                style: const TextStyle(fontSize: 18),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 60.0),
+                child: RoundedButton(
+                  onPress: () => Navigator.of(context).pop(),
+                  label: AppLocalizations.of(context)?.ok ?? '',
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 
   @override

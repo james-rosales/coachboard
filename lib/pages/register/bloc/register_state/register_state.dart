@@ -4,25 +4,15 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'register_state.freezed.dart';
 
-enum ErrorTypeState {
-  empty,
-  length,
-  value,
-  format,
-  none,
-}
-
 @freezed
 class RegisterState with _$RegisterState {
   factory RegisterState({
-    @Default(ErrorType.none) ErrorType errorType,
-    @Default('') String? errorText,
-    @Default('') String firstName,
-    @Default('') String lastName,
-    @Default('') String email,
-    @Default('') String password,
-    @Default('') String confirmpassword,
-    @Default('') String teamname,
+    @Default(TextFieldInput()) TextFieldInput firstName,
+    @Default(TextFieldInput()) TextFieldInput lastName,
+    @Default(TextFieldInput()) TextFieldInput email,
+    @Default(TextFieldInput()) TextFieldInput password,
+    @Default(TextFieldInput()) TextFieldInput confirmpassword,
+    @Default(TextFieldInput()) TextFieldInput teamname,
     @Default(RequestStatus.waiting) RequestStatus requestStatus,
   }) = _RegisterState;
 }

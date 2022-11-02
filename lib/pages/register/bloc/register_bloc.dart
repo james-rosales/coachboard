@@ -17,150 +17,114 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   void _firstnameChanged(FirstNameChanged event, Emitter<RegisterState> emit) {
     var firstName = event.firstName;
 
-    emit(
-      state.copyWith(
-        firstName: firstName,
-      ),
-    );
+    emit(state.copyWith.firstName(
+      value: firstName,
+      errorType: ErrorType.none,
+    ));
   }
 
   void _lastnameChanged(LastNameChanged event, Emitter<RegisterState> emit) {
     var lastName = event.lastName;
-    emit(
-      state.copyWith(
-        lastName: lastName,
-      ),
-    );
+
+    emit(state.copyWith.lastName(
+      value: lastName,
+      errorType: ErrorType.none,
+    ));
   }
 
   void _emailChanged(EmailChanged event, Emitter<RegisterState> emit) {
     var email = event.email;
-    emit(
-      state.copyWith(
-        email: email,
-      ),
-    );
+
+    emit(state.copyWith.email(
+      value: email,
+      errorType: ErrorType.none,
+    ));
   }
 
   void _passwordChanged(PasswordChanged event, Emitter<RegisterState> emit) {
     var password = event.password;
-    emit(
-      state.copyWith(
-        password: password,
-      ),
-    );
+
+    emit(state.copyWith.password(
+      value: password,
+      errorType: ErrorType.none,
+    ));
   }
 
   void _confirmpasswordChanged(
       ConfirmPasswordChanged event, Emitter<RegisterState> emit) {
     var confirmpassword = event.confirmpassword;
-    emit(
-      state.copyWith(
-        confirmpassword: confirmpassword,
-      ),
-    );
+
+    emit(state.copyWith.confirmpassword(
+      value: confirmpassword,
+      errorType: ErrorType.none,
+    ));
   }
 
   void _teamnameChanged(TeamNameChanged event, Emitter<RegisterState> emit) {
     var teamname = event.teamname;
-    emit(
-      state.copyWith(
-        teamname: teamname,
-      ),
-    );
+
+    emit(state.copyWith.teamname(
+      value: teamname,
+      errorType: ErrorType.none,
+    ));
   }
 
   Future<void> _registerPressed(
       RegisterPressed event, Emitter<RegisterState> emit) async {
-    var errorText = state.errorText;
     emit(state.copyWith(
       requestStatus: RequestStatus.waiting,
     ));
-    if (state.firstName.isEmpty) {
-      errorText = 'First name must not be empty';
-      emit(
-        state.copyWith(
-          requestStatus: RequestStatus.failure,
-          errorType: ErrorType.empty,
-          errorText: errorText,
-        ),
-      );
+
+    if (state.firstName.value.isEmpty) {
       emit(state.copyWith(
-        requestStatus: RequestStatus.waiting,
+        requestStatus: RequestStatus.failure,
+        firstName: state.firstName.copyWith(
+          errorType: ErrorType.empty,
+        ),
       ));
-    } else if (state.lastName.isEmpty) {
-      errorText = 'Last name must not be empty';
-      emit(
-        state.copyWith(
-          requestStatus: RequestStatus.failure,
-          errorType: ErrorType.empty,
-          errorText: errorText,
-        ),
-      );
+    } else if (state.lastName.value.isEmpty) {
       emit(state.copyWith(
-        requestStatus: RequestStatus.waiting,
+        requestStatus: RequestStatus.failure,
+        lastName: state.lastName.copyWith(
+          errorType: ErrorType.empty,
+        ),
       ));
-    } else if (state.email.isEmpty) {
-      errorText = 'Email  must not be empty';
-      emit(
-        state.copyWith(
-          requestStatus: RequestStatus.failure,
-          errorType: ErrorType.empty,
-          errorText: errorText,
-        ),
-      );
+    } else if (state.email.value.isEmpty) {
       emit(state.copyWith(
-        requestStatus: RequestStatus.waiting,
+        requestStatus: RequestStatus.failure,
+        email: state.email.copyWith(
+          errorType: ErrorType.empty,
+        ),
       ));
     } else if (!RegExp(
             r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-        .hasMatch(state.email)) {
-      errorText = 'Email address must be valid';
-      emit(
-        state.copyWith(
-          requestStatus: RequestStatus.failure,
-          errorType: ErrorType.empty,
-          errorText: errorText,
-        ),
-      );
+        .hasMatch(state.email.value)) {
       emit(state.copyWith(
-        requestStatus: RequestStatus.waiting,
+        requestStatus: RequestStatus.failure,
+        email: state.email.copyWith(
+          errorType: ErrorType.format,
+        ),
       ));
-    } else if (state.password.isEmpty) {
-      errorText = 'Password is too short';
-      emit(
-        state.copyWith(
-          requestStatus: RequestStatus.failure,
-          errorType: ErrorType.empty,
-          errorText: errorText,
-        ),
-      );
+    } else if (state.password.value.isEmpty) {
       emit(state.copyWith(
-        requestStatus: RequestStatus.waiting,
+        requestStatus: RequestStatus.failure,
+        password: state.password.copyWith(
+          errorType: ErrorType.empty,
+        ),
       ));
     } else if (state.confirmpassword != state.password) {
-      errorText = 'Password does not match';
-      emit(
-        state.copyWith(
-          requestStatus: RequestStatus.failure,
-          errorType: ErrorType.empty,
-          errorText: errorText,
-        ),
-      );
       emit(state.copyWith(
-        requestStatus: RequestStatus.waiting,
+        requestStatus: RequestStatus.failure,
+        confirmpassword: state.confirmpassword.copyWith(
+          errorType: ErrorType.format,
+        ),
       ));
-    } else if (state.teamname.isEmpty) {
-      errorText = 'Team Name must not be empty';
-      emit(
-        state.copyWith(
-          requestStatus: RequestStatus.failure,
-          errorType: ErrorType.empty,
-          errorText: errorText,
-        ),
-      );
+    } else if (state.teamname.value.isEmpty) {
       emit(state.copyWith(
-        requestStatus: RequestStatus.waiting,
+        requestStatus: RequestStatus.failure,
+        teamname: state.teamname.copyWith(
+          errorType: ErrorType.empty,
+        ),
       ));
     } else {
       emit(state.copyWith(

@@ -53,7 +53,27 @@ class HomeAppBar extends StatelessWidget {
                     : AppLocalizations.of(context)?.magnet ?? '',
               ),
               AppBarButton(
-                  // onPress: () => bloc.add(const HomePagePressed(2)),
+                  onPress: () {
+                    showDialog(
+                        barrierColor: Colors.transparent,
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Dialog(
+                            alignment: FractionalOffset.topCenter,
+                            insetPadding: const EdgeInsets.only(
+                              top: 70,
+                              left: 120,
+                            ),
+                            backgroundColor: Colors.white,
+                            elevation: 0,
+                            child: Container(
+                              height: 100,
+                              width: 100,
+                              color: Colors.red,
+                            ),
+                          );
+                        });
+                  },
                   icon: FontAwesomeIcons.basketball,
                   label: AppLocalizations.of(context)?.plays ?? ''),
               AppBarButton(
