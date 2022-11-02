@@ -21,7 +21,7 @@ class LabeledTextfield extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft,
             child: Padding(
-              padding: const EdgeInsets.only(left: 30.0),
+              padding: const EdgeInsets.only(left: 30),
               child: Text(
                 label,
               ),
