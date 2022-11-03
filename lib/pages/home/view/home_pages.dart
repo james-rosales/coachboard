@@ -21,7 +21,7 @@ class HomePages extends StatelessWidget {
         controller: pageController,
         children: [
           const Text(
-            'Full Court',
+            'Half Court',
             style: TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.bold,
@@ -29,7 +29,7 @@ class HomePages extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           const Text(
-            'Free Hand',
+            'Magnet',
             style: TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.bold,
@@ -46,7 +46,7 @@ class HomePages extends StatelessWidget {
           ),
           LoginRouter(),
           const Text(
-            'Half Court',
+            'Full Court',
             style: TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.bold,
@@ -54,7 +54,7 @@ class HomePages extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           const Text(
-            'Magnet',
+            'Free Hand',
             style: TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.bold,

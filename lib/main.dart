@@ -72,8 +72,8 @@ class CoachBoard extends StatelessWidget {
         textTheme: const TextTheme(
           bodyText2: TextStyle(
             fontFamily: 'Aaargh',
-            fontSize: 13,
-            color: Color.fromARGB(255, 0, 0, 0),
+            fontSize: 15,
+            color: Color.fromARGB(255, 25, 24, 24),
           ),
           subtitle1: TextStyle(
             color: Colors.grey,
@@ -115,7 +115,12 @@ class CoachBoard extends StatelessWidget {
             fontFamily: 'CourierPrime',
             fontSize: 30,
             fontWeight: FontWeight.bold,
-            color: Colors.orange,
+            color: Color.fromARGB(
+              255,
+              211,
+              127,
+              2,
+            ),
           ),
         ),
       ),

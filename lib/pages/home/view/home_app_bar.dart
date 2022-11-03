@@ -7,9 +7,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 IconData _appbarIcon(isBool) {
   if (isBool) {
-    return Icons.circle;
+    return FontAwesomeIcons.circleHalfStroke;
   }
-  return FontAwesomeIcons.circleHalfStroke;
+
+  return Icons.circle;
 }
 
 class HomeAppBar extends StatelessWidget {
@@ -21,13 +22,14 @@ class HomeAppBar extends StatelessWidget {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         return AppBar(
-          toolbarHeight: 90,
+          toolbarHeight: 70,
           title: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               Expanded(
                 child: Text(
                   AppLocalizations.of(context)?.coachBoard ?? '',
+                  overflow: TextOverflow.visible,
                 ),
               ),
               AppBarButton(
@@ -38,8 +40,8 @@ class HomeAppBar extends StatelessWidget {
                 ),
                 icon: _appbarIcon(state.firstIcon),
                 label: state.firstIcon
-                    ? AppLocalizations.of(context)?.fullCourt ?? ''
-                    : AppLocalizations.of(context)?.halfCourt ?? '',
+                    ? AppLocalizations.of(context)?.halfCourt ?? ''
+                    : AppLocalizations.of(context)?.fullCourt ?? '',
               ),
               AppBarButton(
                 onPress: () => bloc.add(
@@ -48,11 +50,11 @@ class HomeAppBar extends StatelessWidget {
                   ),
                 ),
                 icon: state.secondIcon
-                    ? Icons.handshake
-                    : FontAwesomeIcons.magnet,
+                    ? FontAwesomeIcons.magnet
+                    : FontAwesomeIcons.handshake,
                 label: state.secondIcon
-                    ? AppLocalizations.of(context)?.freeHand ?? ''
-                    : AppLocalizations.of(context)?.magnet ?? '',
+                    ? AppLocalizations.of(context)?.magnet ?? ''
+                    : AppLocalizations.of(context)?.freeHand ?? '',
               ),
               AppBarButton(
                   onPress: () {
