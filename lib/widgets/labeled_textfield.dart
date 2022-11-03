@@ -29,7 +29,7 @@ class LabeledTextfield extends StatelessWidget {
           ),
           Padding(
             padding:
-                const EdgeInsets.only(left: 30, right: 30, top: 15, bottom: 15),
+                const EdgeInsets.only(left: 30, right: 30, top: 5, bottom: 10),
             child: TextFormField(
               obscureText: obscure,
               onChanged: (value) => onChanged(value),

@@ -50,9 +50,16 @@ class CoachBoard extends StatelessWidget {
       ],
       theme: ThemeData(
         outlinedButtonTheme: OutlinedButtonThemeData(
-          style: OutlinedButton.styleFrom(
-            foregroundColor: Colors.white,
-            backgroundColor: Colors.orange,
+          style: ButtonStyle(
+            overlayColor: MaterialStateProperty.all(
+              Colors.transparent,
+            ),
+            foregroundColor: MaterialStateProperty.all(
+              Colors.white,
+            ),
+            backgroundColor: MaterialStateProperty.all(
+              Colors.orange,
+            ),
           ),
         ),
         dialogTheme: const DialogTheme(
@@ -63,8 +70,15 @@ class CoachBoard extends StatelessWidget {
           ),
         ),
         textTheme: const TextTheme(
-            bodyText2: TextStyle(color: Color.fromARGB(255, 124, 124, 125)),
-            subtitle1: TextStyle(color: Colors.grey)),
+          bodyText2: TextStyle(
+            fontFamily: 'Aaargh',
+            fontSize: 13,
+            color: Color.fromARGB(255, 0, 0, 0),
+          ),
+          subtitle1: TextStyle(
+            color: Colors.grey,
+          ),
+        ),
         inputDecorationTheme: InputDecorationTheme(
           enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(
@@ -73,16 +87,32 @@ class CoachBoard extends StatelessWidget {
             ),
           ),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5),
+            borderRadius: BorderRadius.circular(
+              5,
+            ),
           ),
         ),
         iconTheme: const IconThemeData(
-          size: 35,
+          size: 30,
           color: Colors.white,
         ),
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          primary: const Color.fromARGB(
+            255,
+            59,
+            58,
+            58,
+          ),
+        ),
         appBarTheme: const AppBarTheme(
-          backgroundColor: Color.fromARGB(255, 59, 58, 58),
+          backgroundColor: Color.fromARGB(
+            255,
+            59,
+            58,
+            58,
+          ),
           titleTextStyle: TextStyle(
+            fontFamily: 'CourierPrime',
             fontSize: 30,
             fontWeight: FontWeight.bold,
             color: Colors.orange,

@@ -23,9 +23,16 @@ class LoginForm extends StatelessWidget {
               child: Text(
                 AppLocalizations.of(context)?.coachLogin ?? '',
                 style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 35,
-                    color: Color.fromARGB(255, 211, 127, 2)),
+                  fontWeight: FontWeight.w800,
+                  fontSize: 50,
+                  fontFamily: 'CourierPrime',
+                  color: Color.fromARGB(
+                    255,
+                    211,
+                    127,
+                    2,
+                  ),
+                ),
               ),
             ),
             LabeledTextfield(
@@ -46,9 +53,16 @@ class LoginForm extends StatelessWidget {
               children: [
                 Text(
                   AppLocalizations.of(context)?.noaccountYet ?? '',
-                  style: const TextStyle(fontSize: 20),
+                  style: const TextStyle(
+                    fontSize: 18,
+                  ),
                 ),
                 TextButton(
+                  style: ButtonStyle(
+                    overlayColor: MaterialStateProperty.all(
+                      Colors.transparent,
+                    ),
+                  ),
                   onPressed: () => context.push(RegisterPage.route),
                   child: Text(
                     AppLocalizations.of(context)?.signup ?? '',

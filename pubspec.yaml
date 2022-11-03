@@ -22,9 +22,9 @@ dependencies:
   go_router: ^5.1.1
   intl: ^0.17.0
   font_awesome_flutter: ^10.2.1
-
-
   cupertino_icons: ^1.0.2
+  
+
 
 dev_dependencies:
   flutter_test:
@@ -34,5 +34,19 @@ dev_dependencies:
 flutter:
   generate: true
   uses-material-design: true
+  assets:
+    - assets/fonts/
 
-  
+
+  fonts:
+    - family: Aaargh
+      fonts:
+        - asset: assets/fonts/Aaargh.ttf
+    - family: CourierPrime
+      fonts:
+        - asset: assets/fonts/CourierPrime-Regular.ttf
+        - asset: assets/fonts/CourierPrime-Italic.ttf
+          style: italic
+        - asset: assets/fonts/CourierPrime-Bold.ttf
+          weight: 700  
+   

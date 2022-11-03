@@ -4,11 +4,13 @@ class RoundedButton extends StatelessWidget {
   final String label;
   final VoidCallback? onPress;
   final Color? color;
+  final Color? overlaycolor;
   const RoundedButton({
     super.key,
     required this.label,
     this.onPress,
     this.color,
+    this.overlaycolor,
   });
 
   @override
@@ -17,11 +19,18 @@ class RoundedButton extends StatelessWidget {
       width: 160,
       height: 60,
       child: OutlinedButton(
-        style: OutlinedButton.styleFrom(
-          backgroundColor: color,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(
-              5,
+        style: ButtonStyle(
+          overlayColor: MaterialStateProperty.all(
+            overlaycolor,
+          ),
+          backgroundColor: MaterialStateProperty.all(
+            color,
+          ),
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(
+                5,
+              ),
             ),
           ),
         ),
@@ -31,6 +40,8 @@ class RoundedButton extends StatelessWidget {
         child: Text(
           label,
           style: const TextStyle(
+            fontFamily: 'Aaargh',
+            fontSize: 18,
             color: Colors.white,
           ),
         ),

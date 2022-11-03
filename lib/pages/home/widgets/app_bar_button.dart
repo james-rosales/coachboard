@@ -16,24 +16,34 @@ class AppBarButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-        left: 20,
-        right: 20,
+        left: 10,
+        right: 10,
       ),
-      child: TextButton(
-        onPressed: () => onPress?.call(),
-        child: Column(
-          children: [
-            Icon(
-              icon,
-              color: Colors.white,
-            ),
-            Text(
-              label,
-              style: const TextStyle(
-                color: Colors.white,
+      child: Align(
+        alignment: Alignment.center,
+        child: TextButton(
+          style: ButtonStyle(
+              overlayColor: MaterialStateProperty.all(
+            const Color.fromARGB(255, 47, 47, 47),
+          )),
+          onPressed: () => onPress?.call(),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 10.0),
+                child: Icon(
+                  icon,
+                  color: Colors.white,
+                ),
               ),
-            ),
-          ],
+              Text(
+                label,
+                style: const TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

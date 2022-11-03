@@ -25,5 +25,7 @@
     "pleaseWait": "Please Wait...",
     "register": "Register",
     "signup": "Sign-Up",
+    "viewPlays": "View Plays",
+    "createPlay": "Create Play",
     "teamName": "Team Name"
 }

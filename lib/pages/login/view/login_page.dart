@@ -66,6 +66,7 @@ class LoginPage extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(top: 60.0),
                         child: RoundedButton(
+                          overlaycolor: Colors.orange.shade400,
                           onPress: () => Navigator.of(context).pop(),
                           label: AppLocalizations.of(context)?.ok ?? '',
                         ),
