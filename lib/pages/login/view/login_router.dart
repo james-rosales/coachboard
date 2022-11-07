@@ -4,24 +4,28 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class LoginRouter extends StatelessWidget {
-  LoginRouter({super.key});
+  final GlobalKey<NavigatorState>? naviagtorKey;
+  late final GoRouter _router;
 
-  final GoRouter _router = GoRouter(
-    routes: <GoRoute>[
-      GoRoute(
-        path: '/',
-        builder: (BuildContext context, GoRouterState state) {
-          return const LoginPage();
-        },
-      ),
-      GoRoute(
-        path: RegisterPage.route,
-        builder: (BuildContext context, GoRouterState state) {
-          return const RegisterPage();
-        },
-      ),
-    ],
-  );
+  LoginRouter({super.key, this.naviagtorKey}) {
+    _router = GoRouter(
+      navigatorKey: naviagtorKey,
+      routes: <GoRoute>[
+        GoRoute(
+          path: '/',
+          builder: (BuildContext context, GoRouterState state) {
+            return const LoginPage();
+          },
+        ),
+        GoRoute(
+          path: RegisterPage.route,
+          builder: (BuildContext context, GoRouterState state) {
+            return const RegisterPage();
+          },
+        ),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

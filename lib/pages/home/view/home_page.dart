@@ -4,19 +4,28 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatelessWidget {
   static const route = '/home';
-
-  const HomePage({super.key});
+  final GlobalKey<NavigatorState>? naviagtorKey = GlobalKey();
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider<HomeBloc>(
-      create: (context) => HomeBloc(HomeState()),
-      child: const Scaffold(
+      create: (context) => HomeBloc(
+        HomeState(),
+      ),
+      child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size(double.infinity, 70),
-          child: HomeAppBar(),
+          preferredSize: const Size(
+            double.infinity,
+            70,
+          ),
+          child: HomeAppBar(
+            naviagtorKey: naviagtorKey,
+          ),
         ),
-        body: HomePages(),
+        body: HomePages(
+          naviagtorKey: naviagtorKey,
+        ),
       ),
     );
   }

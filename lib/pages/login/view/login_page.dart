@@ -15,7 +15,6 @@ class LoginPage extends StatelessWidget {
   });
 
   void listener(BuildContext context, LoginState state) {
-    // print(state.requestStatus);
     switch (state.requestStatus) {
       case RequestStatus.inProgress:
         showDialog(
@@ -61,10 +60,14 @@ class LoginPage extends StatelessWidget {
                     children: [
                       Text(
                         state.email.error,
-                        style: const TextStyle(fontSize: 18),
+                        style: const TextStyle(
+                          fontSize: 18,
+                        ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 60.0),
+                        padding: const EdgeInsets.only(
+                          top: 60.0,
+                        ),
                         child: RoundedButton(
                           overlaycolor: Colors.orange.shade400,
                           onPress: () => Navigator.of(context).pop(),

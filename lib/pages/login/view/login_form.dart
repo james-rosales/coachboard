@@ -63,23 +63,39 @@ class LoginForm extends StatelessWidget {
                       Colors.transparent,
                     ),
                   ),
-                  onPressed: () => context.push(RegisterPage.route),
+                  onPressed: () => context.push(
+                    RegisterPage.route,
+                  ),
                   child: Text(
                     AppLocalizations.of(context)?.signup ?? '',
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 211, 127, 2),
+                      color: Color.fromARGB(
+                        255,
+                        211,
+                        127,
+                        2,
+                      ),
                     ),
                   ),
                 ),
               ],
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(
+                10.0,
+              ),
               child: RoundedButton(
-                color: const Color.fromARGB(198, 0, 0, 0),
-                onPress: () => bloc.add(LoginPressed()),
+                color: const Color.fromARGB(
+                  198,
+                  0,
+                  0,
+                  0,
+                ),
+                onPress: () => bloc.add(
+                  LoginPressed(),
+                ),
                 label: AppLocalizations.of(context)?.login ?? '',
               ),
             ),

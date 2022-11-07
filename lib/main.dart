@@ -14,13 +14,13 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        return const HomePage();
+        return HomePage();
       },
     ),
     GoRoute(
       path: HomePage.route,
       builder: (BuildContext context, GoRouterState state) {
-        return const HomePage();
+        return HomePage();
       },
     ),
     GoRoute(
@@ -66,7 +66,7 @@ class CoachBoard extends StatelessWidget {
           titleTextStyle: TextStyle(
             color: Colors.orange,
             fontWeight: FontWeight.bold,
-            fontSize: 23,
+            fontSize: 27,
           ),
         ),
         textTheme: const TextTheme(

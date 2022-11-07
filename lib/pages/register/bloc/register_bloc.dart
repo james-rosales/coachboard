@@ -82,6 +82,9 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
           errorType: ErrorType.empty,
         ),
       ));
+      emit(state.copyWith(
+        requestStatus: RequestStatus.waiting,
+      ));
     } else if (state.lastName.value.isEmpty) {
       emit(state.copyWith(
         requestStatus: RequestStatus.failure,
@@ -89,12 +92,18 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
           errorType: ErrorType.empty,
         ),
       ));
+      emit(state.copyWith(
+        requestStatus: RequestStatus.waiting,
+      ));
     } else if (state.email.value.isEmpty) {
       emit(state.copyWith(
         requestStatus: RequestStatus.failure,
         email: state.email.copyWith(
           errorType: ErrorType.empty,
         ),
+      ));
+      emit(state.copyWith(
+        requestStatus: RequestStatus.waiting,
       ));
     } else if (!RegExp(
             r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
@@ -105,12 +114,19 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
           errorType: ErrorType.format,
         ),
       ));
+      emit(state.copyWith(
+        requestStatus: RequestStatus.waiting,
+      ));
     } else if (state.password.value.isEmpty) {
       emit(state.copyWith(
         requestStatus: RequestStatus.failure,
         password: state.password.copyWith(
           errorType: ErrorType.empty,
         ),
+      ));
+
+      emit(state.copyWith(
+        requestStatus: RequestStatus.waiting,
       ));
     } else if (state.confirmpassword != state.password) {
       emit(state.copyWith(
@@ -119,12 +135,18 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
           errorType: ErrorType.format,
         ),
       ));
+      emit(state.copyWith(
+        requestStatus: RequestStatus.waiting,
+      ));
     } else if (state.teamname.value.isEmpty) {
       emit(state.copyWith(
         requestStatus: RequestStatus.failure,
         teamname: state.teamname.copyWith(
           errorType: ErrorType.empty,
         ),
+      ));
+      emit(state.copyWith(
+        requestStatus: RequestStatus.waiting,
       ));
     } else {
       emit(state.copyWith(

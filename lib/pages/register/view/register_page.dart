@@ -32,7 +32,9 @@ class RegisterPage extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 50.0),
                     child: Text(
                       AppLocalizations.of(context)?.pleaseWait ?? '',
-                      style: const TextStyle(fontSize: 18),
+                      style: const TextStyle(
+                        fontSize: 18,
+                      ),
                     ),
                   ),
                 ],
@@ -107,10 +109,14 @@ class RegisterPage extends StatelessWidget {
             children: [
               Text(
                 errorText,
-                style: const TextStyle(fontSize: 18),
+                style: const TextStyle(
+                  fontSize: 18,
+                ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 60.0),
+                padding: const EdgeInsets.only(
+                  top: 60.0,
+                ),
                 child: RoundedButton(
                   onPress: () => Navigator.of(context).pop(),
                   label: AppLocalizations.of(context)?.ok ?? '',

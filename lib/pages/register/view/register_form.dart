@@ -21,20 +21,35 @@ class RegisterForm extends StatelessWidget {
             child: Text(
               AppLocalizations.of(context)?.coachRegistration ?? '',
               style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 35,
-                  color: Color.fromARGB(255, 211, 127, 2)),
+                fontWeight: FontWeight.w800,
+                fontSize: 40,
+                fontFamily: 'CourierPrime',
+                color: Color.fromARGB(
+                  255,
+                  211,
+                  127,
+                  2,
+                ),
+              ),
             ),
           ),
           LabeledTextfield(
             label: AppLocalizations.of(context)?.firstName ?? '',
             obscure: false,
-            onChanged: (value) => bloc.add(FirstNameChanged(value)),
+            onChanged: (value) => bloc.add(
+              FirstNameChanged(
+                value,
+              ),
+            ),
           ),
           LabeledTextfield(
             label: AppLocalizations.of(context)?.lastName ?? '',
             obscure: false,
-            onChanged: (value) => bloc.add(LastNameChanged(value)),
+            onChanged: (value) => bloc.add(
+              LastNameChanged(
+                value,
+              ),
+            ),
           ),
           LabeledTextfield(
             label: AppLocalizations.of(context)?.middleName ?? '',
@@ -44,47 +59,83 @@ class RegisterForm extends StatelessWidget {
           LabeledTextfield(
             label: AppLocalizations.of(context)?.email ?? '',
             obscure: false,
-            onChanged: (value) => bloc.add(EmailChanged(value)),
+            onChanged: (value) => bloc.add(
+              EmailChanged(
+                value,
+              ),
+            ),
           ),
           LabeledTextfield(
             label: AppLocalizations.of(context)?.password ?? '',
             obscure: true,
-            onChanged: (value) => bloc.add(PasswordChanged(value)),
+            onChanged: (value) => bloc.add(
+              PasswordChanged(
+                value,
+              ),
+            ),
           ),
           LabeledTextfield(
             label: AppLocalizations.of(context)?.confirmPassword ?? '',
             obscure: true,
-            onChanged: (value) => bloc.add(ConfirmPasswordChanged(value)),
+            onChanged: (value) => bloc.add(
+              ConfirmPasswordChanged(
+                value,
+              ),
+            ),
           ),
           LabeledTextfield(
             label: AppLocalizations.of(context)?.teamName ?? '',
             obscure: false,
-            onChanged: (value) => bloc.add(TeamNameChanged(value)),
+            onChanged: (value) => bloc.add(
+              TeamNameChanged(
+                value,
+              ),
+            ),
           ),
           RoundedButton(
-            color: const Color.fromARGB(198, 0, 0, 0),
-            onPress: () => bloc.add(RegisterPressed()),
+            color: const Color.fromARGB(
+              198,
+              0,
+              0,
+              0,
+            ),
+            onPress: () => bloc.add(
+              RegisterPressed(),
+            ),
             label: AppLocalizations.of(context)?.register ?? '',
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                AppLocalizations.of(context)?.backTo ?? '',
-                style: const TextStyle(fontSize: 20),
-              ),
-              TextButton(
-                onPressed: () => context.pop(),
-                child: Text(
-                  AppLocalizations.of(context)?.login ?? '',
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 40.0,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  AppLocalizations.of(context)?.backTo ?? '',
                   style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 211, 127, 2),
                   ),
                 ),
-              ),
-            ],
+                TextButton(
+                  onPressed: () => context.pop(),
+                  child: Text(
+                    AppLocalizations.of(context)?.login ?? '',
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(
+                        255,
+                        211,
+                        127,
+                        2,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       );

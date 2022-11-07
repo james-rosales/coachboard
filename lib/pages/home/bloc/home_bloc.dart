@@ -13,9 +13,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     var icon = event.icon;
     var page = state.currentPage;
     if (icon == true) {
-      page = Page.halfcourt;
+      page = HomeTab.halfcourt;
     } else {
-      page = Page.fullcourt;
+      page = HomeTab.fullcourt;
     }
     emit(
       state.copyWith(
@@ -29,9 +29,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     var icon = event.icon;
     var page = state.currentPage;
     if (icon == true) {
-      page = Page.magnet;
+      page = HomeTab.magnet;
     } else {
-      page = Page.freehand;
+      page = HomeTab.freehand;
     }
     emit(
       state.copyWith(
@@ -44,7 +44,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   void _fourthiconPressed(FourthIconPressed event, Emitter<HomeState> emit) {
     emit(
       state.copyWith(
-        currentPage: Page.login,
+        currentPage: HomeTab.login,
       ),
     );
   }

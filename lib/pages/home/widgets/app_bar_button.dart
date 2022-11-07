@@ -4,12 +4,14 @@ class AppBarButton extends StatelessWidget {
   final IconData? icon;
   final String label;
   final VoidCallback? onPress;
+  final Color overlayColor;
 
   const AppBarButton({
     super.key,
     this.icon,
     required this.label,
     this.onPress,
+    required this.overlayColor,
   });
 
   @override
@@ -23,14 +25,17 @@ class AppBarButton extends StatelessWidget {
         alignment: Alignment.center,
         child: TextButton(
           style: ButtonStyle(
-              overlayColor: MaterialStateProperty.all(
-            const Color.fromARGB(255, 47, 47, 47),
-          )),
+            overlayColor: MaterialStateProperty.all(
+              overlayColor,
+            ),
+          ),
           onPressed: () => onPress?.call(),
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(bottom: 10.0),
+                padding: const EdgeInsets.only(
+                  bottom: 10.0,
+                ),
                 child: Icon(
                   icon,
                   color: Colors.white,

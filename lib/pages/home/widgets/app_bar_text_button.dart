@@ -10,16 +10,13 @@ class AppBarTextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      style: ButtonStyle(
-        overlayColor: MaterialStateProperty.all(
-          Colors.transparent,
-        ),
-      ),
       onPressed: () => onPress?.call,
       child: Row(
         children: [
           Padding(
-            padding: const EdgeInsets.only(right: 10.0),
+            padding: const EdgeInsets.only(
+              right: 10.0,
+            ),
             child: Icon(
               icon,
               color: Colors.white,
